@@ -26,6 +26,8 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
+  console.log('POST!', req.body.heading)
+
   // POST route code here
 });
 
