@@ -26,8 +26,17 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  console.log('POST!', req.body.heading)
+  console.log('POST!', req.user)
 
+  const queryText = `INSERT INTO "listings" (user_id, name, item, description, item_price, address, phone_number, email, image)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+    pool
+      .query(queryText, [req.user.id, req.user.username, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.image])
+      .then(() => res.sendStatus(201))
+      .catch((err) => {
+        console.log('Add listing failed: ', err);
+        res.sendStatus(500);
+    });
   // POST route code here
 });
 
