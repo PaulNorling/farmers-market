@@ -9,17 +9,29 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   const listings = useSelector((store) => store.listings);
   console.log('userpage', listings);
-  
+
   useEffect(() => {
     dispatch({ type: 'FETCH_LISTINGS' });
 }, []);
 
   return (
-    <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <LogOutButton className="btn" />
-    </div>
+    <main>
+      <div>
+        {listings.map(listing => {
+          return (
+            <div key={listing.id}>
+              <img src={listing.image}/>
+              <h2>{listing.description}</h2>
+            </div>
+          )
+        })}
+      </div>
+      <div className="container">
+        <h2>Welcome, {user.username}!</h2>
+        <p>Your ID is: {user.id}</p>
+        <LogOutButton className="btn" />
+      </div>
+    </main>
   );
 }
 
