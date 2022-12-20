@@ -7,7 +7,9 @@ function UserPage() {
 
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
-
+  const listings = useSelector((store) => store.listings);
+  console.log('userpage', listings);
+  
   useEffect(() => {
     dispatch({ type: 'FETCH_LISTINGS' });
 }, []);

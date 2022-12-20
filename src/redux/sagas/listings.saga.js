@@ -5,7 +5,8 @@ function* fetchListings() {
     console.log('fetchListings!')
     try {
         const listings = yield axios.get('/api/listing');
-        // console.log('listings.saga GET', listings)
+        console.log('listings.saga GET', listings.data)
+        yield put ({ type: 'SET_LISTINGS', payload: listings.data})
     } catch {
         console.log('get all error');
     }
