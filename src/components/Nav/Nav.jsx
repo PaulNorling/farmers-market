@@ -32,6 +32,10 @@ function Nav() {
               New Listing
             </Link>
 
+            <Link className="navLink" to="/yourListing">
+              Your Listings
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>
