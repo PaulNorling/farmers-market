@@ -40,4 +40,21 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
+router.get('/user', (req, res) =>{
+  console.log('router get by user', req.user.id)
+  const query = `SELECT * 
+  FROM listings
+  WHERE "user_id"=$1`
+
+  pool.query(query, [req.user.id])
+    .then( result => {
+      console.log('GET IT BY USER!!', result.rows)
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all listings', err);
+      res.sendStatus(500)
+    })
+})
+
 module.exports = router;
