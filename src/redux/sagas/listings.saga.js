@@ -3,6 +3,12 @@ import axios from 'axios';
 
 function* fetchListings() {
     console.log('fetchListings!')
+    try {
+        const listings = yield axios.get('/api/listing');
+        // console.log('listings.saga GET', listings)
+    } catch {
+        console.log('get all error');
+    }
 }
 
 function* listingsSaga() {

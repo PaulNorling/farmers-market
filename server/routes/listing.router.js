@@ -6,6 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
+    console.log('GET IT!!')
   // GET route code here
 });
 
