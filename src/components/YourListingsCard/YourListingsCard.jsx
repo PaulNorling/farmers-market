@@ -6,11 +6,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 //import {useHistory} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
 function YourListingsCard({listing}) {
 
+    const dispatch = useDispatch();
+
     function handleDelete() {
         console.log('delete', listing.id)
+        dispatch({ type: 'DELETE_LISTING', payload: listing.id });
     }
 
     return (
