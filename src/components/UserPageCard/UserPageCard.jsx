@@ -13,6 +13,7 @@ function UserPageCard({listing}) {
 
     function handleClick() {
         console.log('clicked')
+        history.push(`/detail/${listing.id}`)
     }
 
     return (
