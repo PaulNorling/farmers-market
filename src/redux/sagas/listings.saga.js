@@ -31,10 +31,11 @@ function* fetchByUser() {
     }
 }
 
-function* fetchDetail() {
+function* fetchDetail(action) {
+    console.log('fetchDetail', action.payload)
     try{
-        const detail = yield axios.get('/api/listing/detail');
-        console.log('fetchDetail', detail)
+        const detail = yield axios.get(`/api/listing/detail/${action.payload}`);
+        
     }catch {
         console.log('fetchDetail error');
     }

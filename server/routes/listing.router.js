@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   
   pool.query(query)
     .then( result => {
-      console.log('GET IT!!', result.rows)
+      //console.log('GET IT!!', result.rows)
       res.send(result.rows);
     })
     .catch(err => {
@@ -41,14 +41,31 @@ router.post('/', (req, res) => {
 });
 
 router.get('/user', (req, res) =>{
-  console.log('router get by user', req.user.id)
+  //console.log('router get by user', req.user.id)
   const query = `SELECT * 
   FROM listings
   WHERE "user_id"=$1`
 
   pool.query(query, [req.user.id])
     .then( result => {
-      console.log('GET IT BY USER!!', result.rows)
+      //console.log('GET IT BY USER!!', result.rows)
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all listings', err);
+      res.sendStatus(500)
+    })
+})
+
+router.get('/detail/:id', (req, res) => {
+  console.log('router GET detail', req.params.id)
+  const query = `SELECT * 
+  FROM listings
+  WHERE "id"=$1`
+
+  pool.query(query, [req.params.id])
+    .then( result => {
+      console.log('GET IT BY ID!!', result.rows)
       res.send(result.rows);
     })
     .catch(err => {
