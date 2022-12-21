@@ -4,6 +4,8 @@ const listingsReducer = (state = [], action) => {
             return action.payload
         case 'SET_USER_LISTINGS':
             return action.payload
+        case 'SET_DETAIL':
+            return action.payload
         default:
             return state;
     }
