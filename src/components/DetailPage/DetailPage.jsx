@@ -18,6 +18,7 @@ function DetailPage() {
     return(
         <div>
           <h1>Details!</h1>
+          {/* loop through array of 1 any better ideas? */}
           {detail.map(info => {
             return(
                 <div key={info.id}>
