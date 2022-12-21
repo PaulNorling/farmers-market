@@ -7,13 +7,24 @@ function DetailPage() {
 
     const dispatch = useDispatch();
 
+    const detail = useSelector(store => store.listings)
+    console.log('detailpage', detail)
+
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
     }, []);
 
     console.log('detail', params.id)
     return(
-        <h1>Details!</h1>
+        <div>
+          <h1>Details!</h1>
+          {detail.map(info => {
+            return(
+                <div key={info.id}>
+                    <img src={info.image}/>
+                </div>
+            )})}
+        </div>
     )
 }
 

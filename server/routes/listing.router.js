@@ -65,7 +65,7 @@ router.get('/detail/:id', (req, res) => {
 
   pool.query(query, [req.params.id])
     .then( result => {
-      console.log('GET IT BY ID!!', result.rows)
+      //console.log('GET IT BY ID!!', result.rows)
       res.send(result.rows);
     })
     .catch(err => {

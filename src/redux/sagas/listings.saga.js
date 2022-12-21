@@ -32,10 +32,10 @@ function* fetchByUser() {
 }
 
 function* fetchDetail(action) {
-    console.log('fetchDetail', action.payload)
     try{
         const detail = yield axios.get(`/api/listing/detail/${action.payload}`);
-        
+        console.log('fetchDetail', detail.data);
+        yield put ({ type: 'SET_DETAIL', payload: detail.data})
     }catch {
         console.log('fetchDetail error');
     }
