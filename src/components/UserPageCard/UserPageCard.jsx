@@ -5,8 +5,16 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
+import {useHistory} from 'react-router-dom';
 
 function UserPageCard({listing}) {
+
+    const history = useHistory();
+
+    function handleClick() {
+        console.log('clicked')
+    }
+
     return (
     <Card sx={{ maxWidth: 250 }}>
         <Typography>
@@ -22,7 +30,7 @@ function UserPageCard({listing}) {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small">Details</Button>
+            <Button onClick={handleClick}size="small">Details</Button>
         </CardActions>
     </Card>
     )
