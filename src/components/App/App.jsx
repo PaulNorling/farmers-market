@@ -20,7 +20,9 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import NewListing from '../NewListing/NewListing';
+import YourListings from '../YourListings/YourListings';
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -61,11 +63,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows NewListing else shows LoginPage
             exact
             path="/newListing"
           >
             <NewListing />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows YourListing else shows LoginPage
+            exact
+            path="/yourListing"
+          >
+            <YourListings />
           </ProtectedRoute>
 
           <ProtectedRoute

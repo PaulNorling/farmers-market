@@ -21,9 +21,20 @@ function* addListing(action) {
     }
 }
 
+function* fetchByUser() {
+    try{
+        const userListings = yield axios.get('/api/listing/user');
+        console.log('fetchByUser saga', userListings.data)
+        yield put ({ type: 'SET_USER_LISTINGS', payload: userListings.data})
+    }catch {
+        console.log('fetchByUser error');
+    }
+}
+
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
     yield takeLatest('ADD_LISTING', addListing);
+    yield takeLatest('FETCH_LISTINGS_BY_USER', fetchByUser)
 }
 
 export default listingsSaga;
