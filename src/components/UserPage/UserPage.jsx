@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useDispatch, useSelector} from 'react-redux';
+import UserPageCard from '../UserPageCard/UserPageCard';
+import './UserPage.css'
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -16,13 +18,14 @@ function UserPage() {
 
   return (
     <main>
-      <div>
+      <div className='cardGrid'>
         {listings.map(listing => {
           return (
-            <div key={listing.id}>
-              <img src={listing.image}/>
-              <h2>{listing.description}</h2>
-            </div>
+            <UserPageCard key={listing.id} listing={listing}/>
+            // <div key={listing.id}>
+            //   <img src={listing.image}/>
+            //   <h2>{listing.description}</h2>
+            // </div>
           )
         })}
       </div>
