@@ -31,10 +31,20 @@ function* fetchByUser() {
     }
 }
 
+function* fetchDetail() {
+    try{
+        const detail = yield axios.get('/api/listing/detail');
+        console.log('fetchDetail', detail)
+    }catch {
+        console.log('fetchDetail error');
+    }
+}
+
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
     yield takeLatest('ADD_LISTING', addListing);
-    yield takeLatest('FETCH_LISTINGS_BY_USER', fetchByUser)
+    yield takeLatest('FETCH_LISTINGS_BY_USER', fetchByUser);
+    yield takeLatest('FETCH_DETAIL', fetchDetail)
 }
 
 export default listingsSaga;
