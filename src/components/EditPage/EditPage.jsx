@@ -13,9 +13,7 @@ function EditPage() {
 
   const detail = useSelector(store => store.edit)
     
-  console.log('editpage', detail)
-
-  //const head = detail[0].heading
+  console.log('editpage', detail.id)
 
   const dispatch = useDispatch();  
 
@@ -29,20 +27,20 @@ function EditPage() {
 
   const editListing = (event) => {
     event.preventDefault();
-    console.log('clicked!!!')
 
-    // dispatch({
-    //     type: 'ADD_LISTING',
-    //     payload: {
-    //         heading: heading,
-    //         description: description,
-    //         price: price,
-    //         address: address,
-    //         phone_number: phoneNumber,
-    //         email: email,
-    //         image: image,
-    //     }
-    // })
+    dispatch({
+        type: 'EDIT_LISTING',
+        payload: {
+            id: detail.id,
+            heading: heading,
+            description: description,
+            price: price,
+            address: address,
+            phone_number: phoneNumber,
+            email: email,
+            image: image,
+        }
+    })
 };
 
 return (
@@ -133,8 +131,6 @@ return (
           />
         </label>
       </div>
-      
-      
       <div>
         <input className="btn" type="submit" name="submit" value="Edit Listing" />
       </div>

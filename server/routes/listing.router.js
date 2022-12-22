@@ -88,4 +88,8 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.put('/', (req, res) => {
+  console.log('router PUT', req.body)
+})
+
 module.exports = router;
