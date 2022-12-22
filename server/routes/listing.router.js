@@ -74,4 +74,18 @@ router.get('/detail/:id', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+  console.log('router.delete', req.params.id)
+  const query = `DELETE FROM "listings" WHERE "id" = $1;`;
+  pool.query(query, [req.params.id])
+    .then(() => {
+        console.log('listing deleted!');
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log('Error DELETEing');
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
