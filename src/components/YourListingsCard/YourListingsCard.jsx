@@ -5,16 +5,24 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
-//import {useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 function YourListingsCard({listing}) {
+
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
     function handleDelete() {
         console.log('delete', listing.id)
         dispatch({ type: 'DELETE_LISTING', payload: listing.id });
+    }
+
+    const handleEdit = (listing) => {
+        console.log('handleEdit', listing)
+        history.push('/edit')
+        dispatch({ type: 'SET_EDIT_STATE', payload: listing})
     }
 
     return (
@@ -33,6 +41,7 @@ function YourListingsCard({listing}) {
         </CardContent>
         <CardActions>
             <Button onClick={handleDelete} size="small">Delete</Button>
+            <Button onClick={() => handleEdit(listing)} size="small">Edit</Button>
         </CardActions>
     </Card>
     )

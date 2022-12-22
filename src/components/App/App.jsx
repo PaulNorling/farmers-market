@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import NewListing from '../NewListing/NewListing';
 import YourListings from '../YourListings/YourListings';
 import DetailPage from '../DetailPage/DetailPage';
+import EditPage from '../EditPage/EditPage';
 import './App.css';
 
 
@@ -77,6 +78,14 @@ function App() {
             path="/yourListing"
           >
             <YourListings />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows YourListing else shows LoginPage
+            exact
+            path="/edit"
+          >
+            <EditPage />
           </ProtectedRoute>
 
           <ProtectedRoute

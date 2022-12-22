@@ -8,6 +8,7 @@ function DetailPage() {
     const dispatch = useDispatch();
 
     const detail = useSelector(store => store.listings)
+    
     console.log('detailpage', detail)
 
     useEffect(() => {
