@@ -6,24 +6,32 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import {useHistory} from 'react-router-dom';
-import './UserPageCard.css'
+import {useDispatch} from 'react-redux';
 
-function UserPageCard({listing}) {
+function YourListingsCard({listing}) {
 
     const history = useHistory();
 
-    function handleClick() {
-        console.log('clicked')
-        history.push(`/detail/${listing.id}`)
+    const dispatch = useDispatch();
+
+    function handleDelete() {
+        console.log('delete', listing.id)
+        dispatch({ type: 'DELETE_LISTING', payload: listing.id });
+    }
+
+    const handleEdit = (listing) => {
+        console.log('handleEdit', listing)
+        history.push('/edit')
+        dispatch({ type: 'SET_EDIT_STATE', payload: listing})
     }
 
     return (
-    <Card className='listing-card' sx={{ maxWidth: 250 }}>
+        <Card sx={{ maxWidth: 250 }}>
         <Typography>
             {listing.item}
         </Typography>
         <CardMedia
-            className='listing-card-img'
+            sx={{ height: 140 }}
             image={listing.image}
         />
         <CardContent>
@@ -32,10 +40,11 @@ function UserPageCard({listing}) {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button onClick={handleClick}size="small">Details</Button>
+            <Button onClick={handleDelete} size="small">Delete</Button>
+            <Button onClick={() => handleEdit(listing)} size="small">Edit</Button>
         </CardActions>
     </Card>
     )
 }
 
-export default UserPageCard;
+export default YourListingsCard;

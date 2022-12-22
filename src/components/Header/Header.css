@@ -1,0 +1,16 @@
+.radish-img {
+    height: 50px;
+    width: 50px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.banner-header {
+    display: flex;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+}

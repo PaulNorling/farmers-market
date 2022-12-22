@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
+import Header from '../Header/Header';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
@@ -21,6 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import NewListing from '../NewListing/NewListing';
 import YourListings from '../YourListings/YourListings';
+import DetailPage from '../DetailPage/DetailPage';
+import EditPage from '../EditPage/EditPage';
 import './App.css';
 
 
@@ -36,6 +38,7 @@ function App() {
   return (
     <Router>
       <div>
+        <Header />
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -79,12 +82,28 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            // logged in shows YourListing else shows LoginPage
+            exact
+            path="/edit"
+          >
+            <EditPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows DetailPage else shows LoginPage
+            exact
+            path="/detail/:id"
+          >
+            <DetailPage />
+          </ProtectedRoute>
+
+          {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/info"
           >
             <InfoPage />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <Route
             exact
