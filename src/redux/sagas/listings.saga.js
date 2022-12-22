@@ -41,11 +41,23 @@ function* fetchDetail(action) {
     }
 }
 
+function* deleteListing(action){
+    console.log(action.payload)
+    try{
+        yield axios.delete(`/api/listing/${action.payload}`);
+        yield fetchByUser();
+    }catch {
+        console.log('delete error');
+    }
+}
+
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
     yield takeLatest('ADD_LISTING', addListing);
     yield takeLatest('FETCH_LISTINGS_BY_USER', fetchByUser);
-    yield takeLatest('FETCH_DETAIL', fetchDetail)
+    yield takeLatest('FETCH_DETAIL', fetchDetail);
+    yield takeLatest('DELETE_LISTING', deleteListing);
+
 }
 
 export default listingsSaga;

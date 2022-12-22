@@ -22,10 +22,6 @@ function UserPage() {
         {listings.map(listing => {
           return (
             <UserPageCard key={listing.id} listing={listing}/>
-            // <div key={listing.id}>
-            //   <img src={listing.image}/>
-            //   <h2>{listing.description}</h2>
-            // </div>
           )
         })}
       </div>
