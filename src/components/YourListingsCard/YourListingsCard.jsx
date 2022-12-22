@@ -19,6 +19,12 @@ function YourListingsCard({listing}) {
         dispatch({ type: 'DELETE_LISTING', payload: listing.id });
     }
 
+    const handleEdit = (listing) => {
+        console.log('handleEdit', listing)
+        history.push('/edit')
+        dispatch({ type: 'SET_EDIT_STATE', payload: listing})
+    }
+
     return (
         <Card sx={{ maxWidth: 250 }}>
         <Typography>
@@ -35,7 +41,7 @@ function YourListingsCard({listing}) {
         </CardContent>
         <CardActions>
             <Button onClick={handleDelete} size="small">Delete</Button>
-            <Button onClick={() => history.push('/edit')} size="small">Edit</Button>
+            <Button onClick={() => handleEdit(listing)} size="small">Edit</Button>
         </CardActions>
     </Card>
     )
