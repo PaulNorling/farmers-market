@@ -5,10 +5,12 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
-//import {useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 function YourListingsCard({listing}) {
+
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
@@ -33,6 +35,7 @@ function YourListingsCard({listing}) {
         </CardContent>
         <CardActions>
             <Button onClick={handleDelete} size="small">Delete</Button>
+            <Button onClick={() => history.push('/edit')} size="small">Edit</Button>
         </CardActions>
     </Card>
     )
