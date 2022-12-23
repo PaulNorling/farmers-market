@@ -1,0 +1,8 @@
+.heading-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.section-container {
+    margin: 40px;
+}
