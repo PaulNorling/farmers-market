@@ -7,7 +7,7 @@ function DetailPage() {
 
     const dispatch = useDispatch();
 
-    const detail = useSelector(store => store.listings)
+    const detail = useSelector(store => store.listings[0])
     
     console.log('detailpage', detail)
 
@@ -17,15 +17,13 @@ function DetailPage() {
 
     console.log('detail', params.id)
     return(
-        <div>
-          <h1>Details!</h1>
-          {/* loop through array of 1 any better ideas? */}
-          {detail.map(info => {
-            return(
-                <div key={info.id}>
-                    <img src={info.image}/>
-                </div>
-            )})}
+        <div className='container'>
+          <h1>{detail.item}</h1>
+          <div className="grid">
+            <header>{detail.id}</header>
+            <img src={detail.image}/>
+            <p>{detail.description}</p>
+          </div>
         </div>
     )
 }
