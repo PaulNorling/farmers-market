@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import './YourListingsCard.css'
 
 function YourListingsCard({listing}) {
 
@@ -26,12 +27,12 @@ function YourListingsCard({listing}) {
     }
 
     return (
-        <Card sx={{ maxWidth: 250 }}>
+        <Card className='listing-card' sx={{ maxWidth: 250 }}>
         <Typography>
             {listing.item}
         </Typography>
         <CardMedia
-            sx={{ height: 140 }}
+            className='listing-card-img' 
             image={listing.image}
         />
         <CardContent>
