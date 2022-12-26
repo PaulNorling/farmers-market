@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import { useHistory } from 'react-router-dom';
 import './DetailPage.css'
 
 function DetailPage() {
+    const history = useHistory();
+
     const params = useParams();
 
     const dispatch = useDispatch();
@@ -47,9 +51,9 @@ function DetailPage() {
                 <div className='section3-container'>
                   <p>{info.description}</p> 
                 </div>
-                
-              </div>
+              </div> 
           )})}
+          <Button onClick={() => {history.push('/')}}variant="contained">Back</Button>
       </div>
     )
 }
