@@ -1,0 +1,9 @@
+.listing-card {
+    padding: 10px;
+    margin: 10px;
+}
+
+.listing-card-img {
+    height: 250px;
+    width: 250px;
+}

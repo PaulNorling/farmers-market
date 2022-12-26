@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import {useHistory} from 'react-router-dom';
+import './UserPageCard.css'
 
 function UserPageCard({listing}) {
 
@@ -17,12 +18,12 @@ function UserPageCard({listing}) {
     }
 
     return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card className='listing-card' sx={{ maxWidth: 250 }}>
         <Typography>
             {listing.item}
         </Typography>
         <CardMedia
-            sx={{ height: 140 }}
+            className='listing-card-img'
             image={listing.image}
         />
         <CardContent>
