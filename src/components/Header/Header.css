@@ -8,9 +8,35 @@
 
 .banner-header {
     display: flex;
+    flex-direction: row;
+    height: 80px;
 }
 
 .header-container {
     display: flex;
     flex-direction: row;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
+
+.logout-btn {
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-color: #014041;
+    border-width: 1px 1px 3px;
+    border-radius: 20px;
+    background-color: #497dff;
+    color: #f8f8f8;
+    font-size: 1.1rem;
+    outline: 0;
+    cursor: pointer;
+    
 }

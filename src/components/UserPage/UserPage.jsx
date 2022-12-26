@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
+// import LogOutButton from '../LogOutButton/LogOutButton';
 import {useDispatch, useSelector} from 'react-redux';
 import UserPageCard from '../UserPageCard/UserPageCard';
 import './UserPage.css'
@@ -25,11 +25,11 @@ function UserPage() {
           )
         })}
       </div>
-      <div className="container">
+      {/* <div className="container">
         <h2>Welcome, {user.username}!</h2>
         <p>Your ID is: {user.id}</p>
         <LogOutButton className="btn" />
-      </div>
+      </div> */}
     </main>
   );
 }
