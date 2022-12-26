@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import './NewListing.css'
 
 
 
 
 function NewListing() {
+  const history = useHistory();
 
   const dispatch = useDispatch();  
 
@@ -35,7 +39,7 @@ function NewListing() {
 };
 
 return (
-        
+  <div>
     <form className="formPanel" onSubmit={addListing}>
       <h1>New Listing</h1>
       {/* {errors.registrationMessage && (
@@ -52,18 +56,6 @@ return (
             value={heading}
             // required
             onChange={(event) => setHeading(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="description">
-          Description:
-          <input
-            type="text"
-            name="description"
-            value={description}
-            // required
-            onChange={(event) => setDescription(event.target.value)}
           />
         </label>
       </div>
@@ -127,12 +119,25 @@ return (
           />
         </label>
       </div>
-      
-      
       <div>
-        <input className="btn" type="submit" name="submit" value="Add New Listing" />
+        <label htmlFor="description">
+          Description:
+          <input
+            type="text"
+            name="description"
+            value={description}
+            // required
+            onChange={(event) => setDescription(event.target.value)}
+          />
+        </label>
       </div>
+      <div>
+        <Button variant="contained" type="submit" name="submit" value="Add New Listing" >Add New Listing</Button>
+      </div>
+      
     </form>
+        <Button className='back-btn' onClick={() => {history.push('/')}}variant="contained">Back</Button>
+    </div>   
     )
 }
 
