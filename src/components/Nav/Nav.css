@@ -2,7 +2,7 @@
   /* flex box layout */
   display: flex;
   /* justify-content: space-between; */
-  justify-content: right;
+  /* justify-content: right; */
   align-items: center;
 
   margin: 0 0 30px;
@@ -39,5 +39,5 @@
 }
 
 .navLink:hover {
-  background-color: grey;
+  background-color: black;
 }
