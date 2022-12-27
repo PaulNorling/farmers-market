@@ -21,6 +21,7 @@ function DetailPage() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
+        dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     }, []);
 
     
