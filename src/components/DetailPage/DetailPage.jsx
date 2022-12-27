@@ -19,7 +19,9 @@ function DetailPage() {
 
     const favorites = useSelector(store => store.favorite)
 
-    // better ideas?
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    // better ideas? called fetchFavorites when detail button is clicked
     if(!favorites){
       return (
         <p>loading</p>
@@ -34,9 +36,6 @@ function DetailPage() {
           }
         })
     }, []);
-
-    const [isFavorite, setIsFavorite] = useState(false);
-
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});

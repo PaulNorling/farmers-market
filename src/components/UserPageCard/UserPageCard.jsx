@@ -6,15 +6,22 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import {useHistory} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import './UserPageCard.css'
 
 function UserPageCard({listing}) {
 
+    const dispatch = useDispatch();
+
     const history = useHistory();
+
+    const user = useSelector(store => store.user)
 
     function handleClick() {
         console.log('clicked')
         history.push(`/detail/${listing.id}`)
+        //fetch favorites before detail page load to give time for loop
+        // dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     }
 
     return (

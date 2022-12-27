@@ -16,7 +16,7 @@ function EditPage() {
     
   console.log('editpage', detail.id)
 
-  const dispatch = useDispatch();  
+  const dispatch = useDispatch(); 
 
   const [heading, setHeading] = useState(detail.item);
   const [description, setDescription] = useState(detail.description);
