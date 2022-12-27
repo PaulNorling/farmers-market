@@ -39,6 +39,7 @@ function DetailPage() {
 
     const [isFavorite, setIsFavorite] = useState(false);
 
+
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
         dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
@@ -47,7 +48,7 @@ function DetailPage() {
     
     function favorite() {
         console.log('clicked', params.id, user.id)
-        setIsFavorite(!isFavorite);
+        //setIsFavorite(!isFavorite);
         dispatch({ 
             type: 'ADD_FAVORITE', 
             payload: {
@@ -55,12 +56,20 @@ function DetailPage() {
                 user_id: user.id
             }
         })
+        // move to saga?
         dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     };
 
     function notFavorite(){
-        setIsFavorite(!isFavorite);
-        console.log('notFavorite')
+        //setIsFavorite(!isFavorite);
+        console.log('notFavorite', params.id)
+        dispatch({ type: 'DELETE_FAVORITE', 
+                    payload:{
+                    bookmark_listings_id: params.id,
+                    bookmark_user_id: user.id
+                    }
+                })
+        dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     }
 
 
