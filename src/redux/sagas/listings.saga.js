@@ -60,6 +60,15 @@ function* editListing(action) {
     }
 }
 
+function* addFavorite(action) {
+    console.log('addFavoriteSaga', action.payload)
+    try{
+        yield axios.post(`/api/listing/favorite`, action.payload)
+    }catch {
+        console.log('FAV error');
+    }
+}
+
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
     yield takeLatest('ADD_LISTING', addListing);
@@ -67,6 +76,7 @@ function* listingsSaga() {
     yield takeLatest('FETCH_DETAIL', fetchDetail);
     yield takeLatest('DELETE_LISTING', deleteListing);
     yield takeLatest('EDIT_LISTING', editListing);
+    yield takeLatest('ADD_FAVORITE', addFavorite)
 
 }
 

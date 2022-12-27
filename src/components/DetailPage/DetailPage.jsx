@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import './DetailPage.css'
 
 function DetailPage() {
@@ -13,6 +14,8 @@ function DetailPage() {
     const dispatch = useDispatch();
 
     const detail = useSelector(store => store.listings)
+
+    const user = useSelector(store => store.user)
     
     console.log('detailpage', detail)
 
@@ -21,12 +24,22 @@ function DetailPage() {
     }, []);
 
     
-
+    function favorite() {
+        console.log('clicked', params.id, user.id)
+        dispatch({ 
+            type: 'ADD_FAVORITE', 
+            payload: {
+                listings_id: params.id,
+                user_id: user.id
+            }
+        })
+    };
 
 
     console.log('detail', params.id)
     return(
         <div className="detail-container">
+            <StarOutlineIcon onClick={favorite} className='fav-icon'/>
         {/* loop through array of 1 any better ideas?  */}
          {detail.map(info => {
           return(
