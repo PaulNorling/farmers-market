@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
 router.delete('/', (req, res) => {
   console.log('router.delete', req.body.bookmark_listings_id, req.body.bookmark_user_id)
   const query = `DELETE FROM "bookmarks" WHERE "bookmark_user_id" = $1 AND "bookmark_listings_id" = $2;`
-  pool.query(query, [req.body.bookmark_listings_id, req.body.bookmark_user_id])
+  pool.query(query, [req.body.bookmark_user_id, req.body.bookmark_listings_id])
     .then(() => {
         console.log('favorite deleted!');
         res.sendStatus(200);

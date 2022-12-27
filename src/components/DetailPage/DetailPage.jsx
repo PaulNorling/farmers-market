@@ -18,8 +18,6 @@ function DetailPage() {
     const user = useSelector(store => store.user)
 
     const favorites = useSelector(store => store.favorite)
-    
-    console.log('detailpage', favorites)
 
     // better ideas?
     if(!favorites){
@@ -48,7 +46,7 @@ function DetailPage() {
     
     function favorite() {
         console.log('clicked', params.id, user.id)
-        //setIsFavorite(!isFavorite);
+        setIsFavorite(!isFavorite);
         dispatch({ 
             type: 'ADD_FAVORITE', 
             payload: {
@@ -61,7 +59,7 @@ function DetailPage() {
     };
 
     function notFavorite(){
-        //setIsFavorite(!isFavorite);
+        setIsFavorite(!isFavorite);
         console.log('notFavorite', params.id)
         dispatch({ type: 'DELETE_FAVORITE', 
                     payload:{
