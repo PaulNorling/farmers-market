@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import './EditPage.css'
 
 
 
 
 
 function EditPage() {
-
-    
-    
+  const history = useHistory();
 
   const detail = useSelector(store => store.edit)
     
@@ -44,7 +45,7 @@ function EditPage() {
 };
 
 return (
-        
+  <div>     
     <form className="formPanel" onSubmit={editListing}>
       <h1>Edit Listing</h1>
       <div>
@@ -56,18 +57,6 @@ return (
             value={heading}
             // required
             onChange={(event) => setHeading(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="description">
-          Description:
-          <input
-            type="text"
-            name="description"
-            value={description}
-            // required
-            onChange={(event) => setDescription(event.target.value)}
           />
         </label>
       </div>
@@ -132,9 +121,24 @@ return (
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Edit Listing" />
+        <label htmlFor="description">
+          Description:
+          <input
+            className='description-input'
+            type="text"
+            name="description"
+            value={description}
+            // required
+            onChange={(event) => setDescription(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+      <Button variant="contained" type="submit" name="submit" value="Add New Listing" >Submit</Button>
       </div>
     </form>
+    <Button sx={{ m: 2 }}className='back' onClick={() => {history.push('/yourListing')}}variant="contained">Back</Button>
+  </div>
     )
 }
 

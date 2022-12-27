@@ -136,7 +136,7 @@ return (
       </div>
       
     </form>
-        <Button className='back-btn' onClick={() => {history.push('/')}}variant="contained">Back</Button>
+        <Button sx={{ m: 2 }} className='back-btn' onClick={() => {history.push('/')}}variant="contained">Back</Button>
     </div>   
     )
 }
