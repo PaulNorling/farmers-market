@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
@@ -21,11 +21,23 @@ function DetailPage() {
     
     console.log('detailpage', favorites)
 
-    favorites.map(favorite => {
-        if(+favorite.bookmark_listings_id == params.id){
-        console.log('MAP', favorite)
-        }
-    })
+    // better ideas?
+    if(!favorites){
+      return (
+        <p>loading</p>
+      )
+    }
+
+    useEffect(() => {
+        favorites.map(favorite => {
+          if(favorite.bookmark_listings_id == params.id){
+            console.log('Favorite!', favorite)
+            setIsFavorite(!isFavorite);
+          }
+        })
+    }, []);
+
+    const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
@@ -35,6 +47,7 @@ function DetailPage() {
     
     function favorite() {
         console.log('clicked', params.id, user.id)
+        setIsFavorite(!isFavorite);
         dispatch({ 
             type: 'ADD_FAVORITE', 
             payload: {
@@ -42,13 +55,19 @@ function DetailPage() {
                 user_id: user.id
             }
         })
+        dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     };
+
+    function notFavorite(){
+        setIsFavorite(!isFavorite);
+        console.log('notFavorite')
+    }
 
 
     console.log('detail', params.id)
     return(
         <div className="detail-container">
-            <StarOutlineIcon onClick={favorite} className='fav-icon'/>
+            {isFavorite ? <StarOutlineIcon onClick={notFavorite} className='fav-icon'/> : <StarOutlineIcon onClick={favorite} className='not-fav-icon'/>}
         {/* loop through array of 1 any better ideas?  */}
          {detail.map(info => {
           return(
