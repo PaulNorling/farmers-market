@@ -13,7 +13,9 @@ function* addFavorite(action) {
 function* fetchFavorite(action) {
     console.log('fetchFavorite', action.payload)
     try{
-        yield axios.get(`/api/favorite`, action.payload)
+        const favorites = yield axios.get(`/api/favorite/${action.payload}`)
+        console.log('fetchFavorites', favorites.data)
+        yield put ({ type: 'SET_FAVORITES', payload: favorites.data})
     }catch {
         console.log('FAV GET error');
     }

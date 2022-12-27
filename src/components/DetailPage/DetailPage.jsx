@@ -16,8 +16,16 @@ function DetailPage() {
     const detail = useSelector(store => store.listings)
 
     const user = useSelector(store => store.user)
+
+    const favorites = useSelector(store => store.favorite)
     
-    console.log('detailpage', detail)
+    console.log('detailpage', favorites)
+
+    favorites.map(favorite => {
+        if(+favorite.bookmark_listings_id == params.id){
+        console.log('MAP', favorite)
+        }
+    })
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
