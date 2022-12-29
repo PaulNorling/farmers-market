@@ -45,3 +45,13 @@ h5 {
     border-radius: 10px;
 
 }
+
+.fav-icon {
+    transform: scale(1.8);
+    color: yellow;
+}
+
+.not-fav-icon {
+    transform: scale(1.8);
+    /* background-color: yellow; */
+}

@@ -65,7 +65,7 @@ router.get('/detail/:id', (req, res) => {
 
   pool.query(query, [req.params.id])
     .then( result => {
-      console.log('GET IT BY ID!!', result.rows[0])
+      //console.log('GET IT BY ID!!', result.rows[0])
       res.send(result.rows);
     })
     .catch(error => {
@@ -118,5 +118,7 @@ router.put('/', (req, res) => {
         res.sendStatus(500);
     })             
 })
+
+
 
 module.exports = router;
