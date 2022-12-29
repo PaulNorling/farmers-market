@@ -50,6 +50,24 @@ router.delete('/', (req, res) => {
     })
 })
 
+router.get('/', (req, res) => {
+    //console.log('getfavoritesbyuser')
+    const query = `SELECT *
+    FROM "listings"
+    RIGHT JOIN "bookmarks"
+    ON "listings"."id" = "bookmarks"."bookmark_listings_id"
+    WHERE "user_id"=$1;`
+    pool.query(query, [req.user.id])
+    .then((result) => {
+      console.log('get USER favorites!', result.rows);
+      res.send(result.rows);
+  })
+  .catch((error) => {
+      console.log('Error getting Userfavorites', error);
+      res.sendStatus(500);
+  })        
+});
+
 /**
  * POST route template
  */

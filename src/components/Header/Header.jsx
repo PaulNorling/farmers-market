@@ -11,7 +11,7 @@ function Header() {
                 <h1>Farmers Marketplace</h1>
             </div>
             <div className="container">
-              <h2>Welcome, {user.username}!</h2>
+              <h2>Welcome, {user.username}</h2>
               <LogOutButton className="logout-btn" />
             </div>
         </header>
