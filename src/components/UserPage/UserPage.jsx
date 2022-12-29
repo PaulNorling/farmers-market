@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import LogOutButton from '../LogOutButton/LogOutButton';
 import {useDispatch, useSelector} from 'react-redux';
-import UserPageCard from '../UserPageCard/UserPageCard';
+import UserPageCard from './UserPageCard';
 import './UserPage.css'
 
 function UserPage() {

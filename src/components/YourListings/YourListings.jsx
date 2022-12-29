@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import YourListingsCard from '../YourListingsCard/YourListingsCard';
+import YourListingsCard from './YourListingsCard';
 
 function YourListings() {
     const dispatch = useDispatch();
 
     const yourListings = useSelector((store) => store.listings);
     console.log('yourlisings', yourListings)
+    
     useEffect(() => {
         dispatch({ type: 'FETCH_LISTINGS_BY_USER' });
     }, []);
