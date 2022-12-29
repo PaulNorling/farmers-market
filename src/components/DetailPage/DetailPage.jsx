@@ -21,12 +21,11 @@ function DetailPage() {
 
     const [isFavorite, setIsFavorite] = useState(false);
 
-    // better ideas? called fetchFavorites when detail button is clicked
-    if(!favorites){
-      return (
-        <p>loading</p>
-      )
-    }
+    // if(!favorites){
+    //   return (
+    //     <p>loading</p>
+    //   )
+    // }
 
     useEffect(() => {
         favorites.map(favorite => {
@@ -39,7 +38,6 @@ function DetailPage() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
-        dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     }, []);
 
     
@@ -53,8 +51,6 @@ function DetailPage() {
                 user_id: user.id
             }
         })
-        // move to saga?
-        dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     };
 
     function notFavorite(){
@@ -66,7 +62,6 @@ function DetailPage() {
                     bookmark_user_id: user.id
                     }
                 })
-        dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     }
 
 

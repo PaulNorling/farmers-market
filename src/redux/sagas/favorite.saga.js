@@ -5,7 +5,7 @@ function* addFavorite(action) {
     console.log('addFavoriteSaga', action.payload)
     try{
         yield axios.post(`/api/favorite`, action.payload)
-        yield fetchFavorite();
+        //yield fetchFavorite();
     }catch {
         console.log('FAV error');
     }
