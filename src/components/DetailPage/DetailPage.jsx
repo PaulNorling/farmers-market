@@ -57,10 +57,7 @@ function DetailPage() {
         setIsFavorite(!isFavorite);
         console.log('notFavorite', params.id)
         dispatch({ type: 'DELETE_FAVORITE', 
-                    payload:{
-                    bookmark_listings_id: params.id,
-                    bookmark_user_id: user.id
-                    }
+                   payload: params.id    
                 })
     }
 
