@@ -18,9 +18,7 @@ function FavoritesPageCard({listing}) {
 
     function handleDelete() {
         dispatch({ type: 'DELETE_FAVORITE', 
-                    payload:{
-                    bookmark_listings_id: listing.bookmark_listings_id
-                    }
+                    payload: listing.bookmark_listings_id
                 })
         dispatch({ type: 'FETCH_FAVORITES_BY_USER' });
     }

@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  //console.log('router.delete', req.params.id)
+  console.log('router.delete', req.user.id, req.params.id)
     const query = `DELETE FROM "bookmarks" 
     WHERE "bookmark_user_id" = $1 AND "bookmark_listings_id" = $2;`
     pool.query(query, [req.user.id, req.params.id])
@@ -57,7 +57,7 @@ router.get('/', (req, res) => {
     FROM "listings"
     RIGHT JOIN "bookmarks"
     ON "listings"."id" = "bookmarks"."bookmark_listings_id"
-    WHERE "user_id"=$1;`
+    WHERE "bookmark_user_id"=$1;`
     pool.query(query, [req.user.id])
     .then((result) => {
       console.log('get USER favorites!', result.rows);
