@@ -3,7 +3,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import StarIcon from '@mui/icons-material/StarOutline';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import './DetailPage.css'
 
 function DetailPage() {
@@ -65,7 +67,7 @@ function DetailPage() {
     console.log('detail', params.id)
     return(
         <div className="detail-container">
-            {isFavorite ? <StarOutlineIcon onClick={notFavorite} className='fav-icon'/> : <StarOutlineIcon onClick={favorite} className='not-fav-icon'/>}
+            {isFavorite ? <FavoriteIcon onClick={notFavorite} className='fav-icon'/> : <FavoriteBorderIcon onClick={favorite} className='not-fav-icon'/>}
         {/* loop through array of 1 any better ideas?  */}
          {detail.map(info => {
           return(
