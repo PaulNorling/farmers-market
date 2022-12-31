@@ -29,17 +29,23 @@ function DetailPage() {
     //   )
     // }
 
-    useEffect(() => {
-        favorites.map(favorite => {
-          if(favorite.bookmark_listings_id == params.id){
-            console.log('Favorite!', favorite)
-            setIsFavorite(!isFavorite);
-          }
-        })
-    }, []);
+    // useEffect(() => {
+    //     favorites.map(favorite => {
+    //       if(favorite.bookmark_listings_id == params.id){
+    //         console.log('Favorite!', favorite)
+    //         setIsFavorite(!isFavorite);
+    //       }
+    //     })
+    // }, []);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
+        favorites.map(favorite => {
+            if(favorite.bookmark_listings_id == params.id){
+              console.log('Favorite!', favorite)
+              setIsFavorite(!isFavorite);
+            }
+          });
     }, []);
 
     
