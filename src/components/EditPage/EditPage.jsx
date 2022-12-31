@@ -6,10 +6,8 @@ import Button from '@mui/material/Button';
 import './EditPage.css'
 
 
-
-
-
 function EditPage() {
+
   const history = useHistory();
 
   const detail = useSelector(store => store.edit)
