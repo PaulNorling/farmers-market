@@ -29,7 +29,6 @@ function NewListing() {
         payload: {
             heading: heading,
             name: name,
-            //price: price,
             address: address,
             phone_number: phoneNumber,
             email: email,

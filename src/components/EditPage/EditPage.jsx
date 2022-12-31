@@ -33,7 +33,7 @@ function EditPage() {
             id: detail.id,
             heading: heading,
             description: description,
-            price: price,
+            name: name,
             address: address,
             phone_number: phoneNumber,
             email: email,

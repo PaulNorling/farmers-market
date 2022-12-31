@@ -92,8 +92,8 @@ router.put('/', (req, res) => {
   console.log('router PUT', req.body)
   const query =`UPDATE listings
                 SET item = $1,
-                description = $2,
-                item_price = $3,
+                name = $2,
+                description = $3,
                 address= $4,
                 phone_number = $5,
                 email = $6,
@@ -101,8 +101,8 @@ router.put('/', (req, res) => {
                 WHERE id = $8`
    pool.query(query, [
     req.body.heading,
+    req.body.name,
     req.body.description,
-    req.body.price,
     req.body.address,
     req.body.phone_number,
     req.body.email,
