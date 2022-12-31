@@ -3,6 +3,8 @@ const favoriteReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'SET_FAVORITES':
 			return action.payload;
+		case 'SET_USER_FAVORITES':
+			return action.payload;
 		default:
 			return state;
 	}

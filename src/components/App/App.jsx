@@ -23,7 +23,9 @@ import NewListing from '../NewListing/NewListing';
 import YourListings from '../YourListings/YourListings';
 import DetailPage from '../DetailPage/DetailPage';
 import EditPage from '../EditPage/EditPage';
+import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import './App.css';
+
 
 
 function App() {
@@ -95,6 +97,14 @@ function App() {
             path="/detail/:id"
           >
             <DetailPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows favoritesPage else shows LoginPage
+            exact
+            path="/favorites"
+          >
+            <FavoritesPage />
           </ProtectedRoute>
 
           {/* <ProtectedRoute

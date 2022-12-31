@@ -7,23 +7,31 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import './YourListingsCard.css'
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
-function YourListingsCard({listing}) {
+function FavoritesPageCard({listing}) {
+
+    console.log('FavoritesPageCard' ,listing)
 
     const history = useHistory();
 
     const dispatch = useDispatch();
 
     function handleDelete() {
-        console.log('delete', listing.id)
-        dispatch({ type: 'DELETE_LISTING', payload: listing.id });
+        dispatch({ type: 'DELETE_FAVORITE', 
+                    payload: listing.bookmark_listings_id
+                })
+        dispatch({ type: 'FETCH_FAVORITES_BY_USER' });
     }
 
-    const handleEdit = (listing) => {
-        console.log('handleEdit', listing)
-        history.push('/edit')
-        dispatch({ type: 'SET_EDIT_STATE', payload: listing})
+    function handleClick() {
+        console.log('favoritesPageCard', listing.bookmark_listings_id)
+        history.push(`/detail/${listing.bookmark_listings_id
+        }`)
+        //fetch favorites before detail page load to give time for loop
+        // dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     }
 
     return (
@@ -41,11 +49,15 @@ function YourListingsCard({listing}) {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button onClick={handleDelete} size="small">Delete</Button>
-            <Button onClick={() => handleEdit(listing)} size="small">Edit</Button>
+            <Tooltip title="Delete">
+                <IconButton>
+                    <DeleteIcon onClick={handleDelete}/>
+                </IconButton>
+            </Tooltip>
+            <Button onClick={handleClick}size="small">Details</Button>
         </CardActions>
     </Card>
     )
 }
 
-export default YourListingsCard;
+export default FavoritesPageCard;

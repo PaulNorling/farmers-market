@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import LogOutButton from '../LogOutButton/LogOutButton';
 import {useDispatch, useSelector} from 'react-redux';
-import UserPageCard from '../UserPageCard/UserPageCard';
+import UserPageCard from './UserPageCard';
 import './UserPage.css'
 
 function UserPage() {
@@ -9,7 +9,9 @@ function UserPage() {
 
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+
   const listings = useSelector((store) => store.listings);
+  
   console.log('userpage', listings);
 
   useEffect(() => {
