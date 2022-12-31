@@ -28,10 +28,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log('POST!', req.user)
 
-  const queryText = `INSERT INTO "listings" (user_id, name, item, description, item_price, address, phone_number, email, image)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+  const queryText = `INSERT INTO "listings" (user_id, name, item, description, item_price, address, phone_number, email, image, zip)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10)`
     pool
-      .query(queryText, [req.user.id, req.user.username, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.image])
+      .query(queryText, [req.user.id, req.body.name, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.image, req.user.zip])
       .then(() => res.sendStatus(201))
       .catch((err) => {
         console.log('Add listing failed: ', err);

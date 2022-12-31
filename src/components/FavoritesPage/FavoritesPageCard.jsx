@@ -50,8 +50,8 @@ function FavoritesPageCard({listing}) {
         </CardContent>
         <CardActions>
             <Tooltip title="Delete">
-                <IconButton>
-                    <DeleteIcon onClick={handleDelete}/>
+                <IconButton onClick={handleDelete}>
+                    <DeleteIcon />
                 </IconButton>
             </Tooltip>
             <Button onClick={handleClick}size="small">Details</Button>

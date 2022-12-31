@@ -13,13 +13,13 @@ function NewListing() {
   const dispatch = useDispatch();  
 
   const [heading, setHeading] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
+  const [name, setName] = useState('');
+  //const [price, setPrice] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
-
+  const [description, setDescription] = useState('');
   const addListing = (event) => {
     event.preventDefault();
     console.log('clicked!!!')
@@ -28,12 +28,13 @@ function NewListing() {
         type: 'ADD_LISTING',
         payload: {
             heading: heading,
-            description: description,
-            price: price,
+            name: name,
+            //price: price,
             address: address,
             phone_number: phoneNumber,
             email: email,
             image: image,
+            description: description,
         }
     })
 };
@@ -49,7 +50,7 @@ return (
       )} */}
       <div>
         <label htmlFor="heading">
-          Heading:
+          Listing Title:
           <input
             type="text"
             name="heading"
@@ -60,17 +61,29 @@ return (
         </label>
       </div>
       <div>
+        <label htmlFor="name">
+          Name:
+          <input
+            type="text"
+            name="name"
+            value={name}
+            // required
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
+      </div>
+      {/* <div>
         <label htmlFor="price">
           Price:
           <input
             type="text"
             name="price"
             value={price}
-            // required
+            required
             onChange={(event) => setPrice(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
       <div>
         <label htmlFor="address">
           Address:
