@@ -18,7 +18,7 @@ function EditPage() {
 
   const [heading, setHeading] = useState(detail.item);
   const [description, setDescription] = useState(detail.description);
-  const [price, setPrice] = useState(detail.item_price);
+  const [name, setName] = useState(detail.name);
   const [address, setAddress] = useState(detail.address);
   const [phoneNumber, setPhoneNumber] = useState(detail.phone_number);
   const [email, setEmail] = useState(detail.email);
@@ -48,7 +48,7 @@ return (
       <h1>Edit Listing</h1>
       <div>
         <label htmlFor="heading">
-          Heading:
+          Listing Title:
           <input
             type="text"
             name="heading"
@@ -59,6 +59,18 @@ return (
         </label>
       </div>
       <div>
+        <label htmlFor="name">
+          Name:
+          <input
+            type="text"
+            name="name"
+            value={name}
+            // required
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
+      </div>
+      {/* <div>
         <label htmlFor="price">
           Price:
           <input
@@ -69,7 +81,7 @@ return (
             onChange={(event) => setPrice(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
       <div>
         <label htmlFor="address">
           Address:
