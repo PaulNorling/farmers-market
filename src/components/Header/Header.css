@@ -24,9 +24,9 @@
     margin-left: auto;
 }
 
-.logout-btn {
-    height: 50px;
-    margin-top: 5px;
+/* .logout-btn {
+    
+    margin-top: 35px;
     margin-left: 5px;
     display: inline-block;
     padding: 10px 20px;
@@ -39,4 +39,11 @@
     outline: 0;
     cursor: pointer;
     
+} */
+
+.user-greeting {
+    font-size: x-large;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-right: 10px;
 }

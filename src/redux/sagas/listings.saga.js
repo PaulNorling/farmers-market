@@ -60,6 +60,7 @@ function* editListing(action) {
     }
 }
 
+
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
     yield takeLatest('ADD_LISTING', addListing);
@@ -67,6 +68,7 @@ function* listingsSaga() {
     yield takeLatest('FETCH_DETAIL', fetchDetail);
     yield takeLatest('DELETE_LISTING', deleteListing);
     yield takeLatest('EDIT_LISTING', editListing);
+    
 
 }
 
