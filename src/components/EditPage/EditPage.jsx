@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-
-
+import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import './EditPage.css'
 
 
 function EditPage() {
 
-    
-    
+  const history = useHistory();
 
   const detail = useSelector(store => store.edit)
     
   console.log('editpage', detail.id)
 
-  const dispatch = useDispatch();  
+  const dispatch = useDispatch(); 
 
   const [heading, setHeading] = useState(detail.item);
   const [description, setDescription] = useState(detail.description);
-  const [price, setPrice] = useState(detail.item_price);
+  const [name, setName] = useState(detail.name);
   const [address, setAddress] = useState(detail.address);
   const [phoneNumber, setPhoneNumber] = useState(detail.phone_number);
   const [email, setEmail] = useState(detail.email);
@@ -34,7 +33,7 @@ function EditPage() {
             id: detail.id,
             heading: heading,
             description: description,
-            price: price,
+            name: name,
             address: address,
             phone_number: phoneNumber,
             email: email,
@@ -44,13 +43,14 @@ function EditPage() {
 };
 
 return (
-        
-    <form className="formPanel" onSubmit={editListing}>
+  <div>     
+    <form className="addListingForm" onSubmit={editListing}>
       <h1>Edit Listing</h1>
       <div>
         <label htmlFor="heading">
-          Heading:
+          Listing Title:
           <input
+            className='listingInput'
             type="text"
             name="heading"
             value={heading}
@@ -60,18 +60,19 @@ return (
         </label>
       </div>
       <div>
-        <label htmlFor="description">
-          Description:
+        <label htmlFor="name">
+          Name:
           <input
+            className='listingInput'
             type="text"
-            name="description"
-            value={description}
+            name="name"
+            value={name}
             // required
-            onChange={(event) => setDescription(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
           />
         </label>
       </div>
-      <div>
+      {/* <div>
         <label htmlFor="price">
           Price:
           <input
@@ -82,11 +83,12 @@ return (
             onChange={(event) => setPrice(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
       <div>
         <label htmlFor="address">
           Address:
           <input
+            className='listingInput'
             type="text"
             name="address"
             value={address}
@@ -99,6 +101,7 @@ return (
         <label htmlFor="phoneNumber">
           Phone:
           <input
+            className='listingInput'
             type="text"
             name="phoneNumber"
             value={phoneNumber}
@@ -111,6 +114,7 @@ return (
         <label htmlFor="email">
           Email:
           <input
+            className='listingInput'
             type="text"
             name="email"
             value={email}
@@ -123,6 +127,7 @@ return (
         <label htmlFor="image">
           Image File:
           <input
+            className='listingInput'
             type="text"
             name="image"
             value={image}
@@ -132,9 +137,24 @@ return (
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Edit Listing" />
+        <label htmlFor="description">
+          Description:
+          <textarea
+            className='descriptionInput'
+            type="text"
+            name="description"
+            value={description}
+            // required
+            onChange={(event) => setDescription(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+      <Button variant="contained" type="submit" name="submit" value="Add New Listing" >Submit</Button>
       </div>
     </form>
+    <Button sx={{ m: 2 }}className='back' onClick={() => {history.push('/yourListing')}}variant="contained">Back</Button>
+  </div>
     )
 }
 

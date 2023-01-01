@@ -28,10 +28,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log('POST!', req.user)
 
-  const queryText = `INSERT INTO "listings" (user_id, name, item, description, item_price, address, phone_number, email, image)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+  const queryText = `INSERT INTO "listings" (user_id, name, item, description, item_price, address, phone_number, email, image, zip)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10)`
     pool
-      .query(queryText, [req.user.id, req.user.username, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.image])
+      .query(queryText, [req.user.id, req.body.name, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.image, req.user.zip])
       .then(() => res.sendStatus(201))
       .catch((err) => {
         console.log('Add listing failed: ', err);
@@ -65,7 +65,7 @@ router.get('/detail/:id', (req, res) => {
 
   pool.query(query, [req.params.id])
     .then( result => {
-      console.log('GET IT BY ID!!', result.rows[0])
+      //console.log('GET IT BY ID!!', result.rows[0])
       res.send(result.rows);
     })
     .catch(error => {
@@ -92,8 +92,8 @@ router.put('/', (req, res) => {
   console.log('router PUT', req.body)
   const query =`UPDATE listings
                 SET item = $1,
-                description = $2,
-                item_price = $3,
+                name = $2,
+                description = $3,
                 address= $4,
                 phone_number = $5,
                 email = $6,
@@ -101,8 +101,8 @@ router.put('/', (req, res) => {
                 WHERE id = $8`
    pool.query(query, [
     req.body.heading,
+    req.body.name,
     req.body.description,
-    req.body.price,
     req.body.address,
     req.body.phone_number,
     req.body.email,
@@ -118,5 +118,7 @@ router.put('/', (req, res) => {
         res.sendStatus(500);
     })             
 })
+
+
 
 module.exports = router;

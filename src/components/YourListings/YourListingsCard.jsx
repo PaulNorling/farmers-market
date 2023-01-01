@@ -2,11 +2,14 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import EditIcon from '@mui/icons-material/Edit';
 import './YourListingsCard.css'
 
 function YourListingsCard({listing}) {
@@ -37,12 +40,22 @@ function YourListingsCard({listing}) {
         />
         <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                {listing.description}
+            {listing.description.substring(0, 30)}...
             </Typography>
         </CardContent>
-        <CardActions>
-            <Button onClick={handleDelete} size="small">Delete</Button>
-            <Button onClick={() => handleEdit(listing)} size="small">Edit</Button>
+        <CardActions className='icons'>
+            {/* <Button onClick={handleDelete} size="small">Delete</Button> */}
+            <Tooltip title="Delete">
+                <IconButton onClick={handleDelete}>
+                    <DeleteIcon />
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Edit">
+                <IconButton onClick={() => handleEdit(listing)}>
+                    <EditIcon className='edit-icon' />
+                </IconButton>
+            </Tooltip>
+            {/* <Button onClick={() => handleEdit(listing)} size="small">Edit</Button> */}
         </CardActions>
     </Card>
     )

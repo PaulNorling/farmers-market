@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import './NewListing.css'
 
 
 
 
 function NewListing() {
+  const history = useHistory();
 
   const dispatch = useDispatch();  
 
   const [heading, setHeading] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
+  const [name, setName] = useState('');
+  //const [price, setPrice] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
-
+  const [description, setDescription] = useState('');
   const addListing = (event) => {
     event.preventDefault();
     console.log('clicked!!!')
@@ -24,19 +28,19 @@ function NewListing() {
         type: 'ADD_LISTING',
         payload: {
             heading: heading,
-            description: description,
-            price: price,
+            name: name,
             address: address,
             phone_number: phoneNumber,
             email: email,
             image: image,
+            description: description,
         }
     })
 };
 
 return (
-        
-    <form className="formPanel" onSubmit={addListing}>
+  <div className='new-listing'>
+    <form className="addListingForm" onSubmit={addListing}>
       <h1>New Listing</h1>
       {/* {errors.registrationMessage && (
         <h3 className="alert" role="alert">
@@ -45,44 +49,47 @@ return (
       )} */}
       <div>
         <label htmlFor="heading">
-          Heading:
-          <input
+          Listing Title:
+        </label>
+        <input
+            className='listingInput'
             type="text"
             name="heading"
             value={heading}
             // required
             onChange={(event) => setHeading(event.target.value)}
           />
-        </label>
       </div>
       <div>
-        <label htmlFor="description">
-          Description:
+        <label htmlFor="name">
+          Name:
           <input
+            className='listingInput'
             type="text"
-            name="description"
-            value={description}
+            name="name"
+            value={name}
             // required
-            onChange={(event) => setDescription(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
           />
         </label>
       </div>
-      <div>
+      {/* <div>
         <label htmlFor="price">
           Price:
           <input
             type="text"
             name="price"
             value={price}
-            // required
+            required
             onChange={(event) => setPrice(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
       <div>
         <label htmlFor="address">
           Address:
           <input
+            className='listingInput'
             type="text"
             name="address"
             value={address}
@@ -95,6 +102,7 @@ return (
         <label htmlFor="phoneNumber">
           Phone:
           <input
+            className='listingInput'
             type="text"
             name="phoneNumber"
             value={phoneNumber}
@@ -107,6 +115,7 @@ return (
         <label htmlFor="email">
           Email:
           <input
+            className='listingInput'
             type="text"
             name="email"
             value={email}
@@ -119,6 +128,7 @@ return (
         <label htmlFor="image">
           Image File:
           <input
+            className='listingInput'
             type="text"
             name="image"
             value={image}
@@ -127,12 +137,26 @@ return (
           />
         </label>
       </div>
-      
-      
       <div>
-        <input className="btn" type="submit" name="submit" value="Add New Listing" />
+        <label htmlFor="description">
+          Description:
+          <textarea
+            className='descriptionInput'
+            type="text"
+            name="description"
+            value={description}
+            // required
+            onChange={(event) => setDescription(event.target.value)}
+          />
+        </label>
       </div>
+      <div>
+        <Button variant="contained" type="submit" name="submit" value="Add New Listing" >Add New Listing</Button>
+      </div>
+      
     </form>
+        <Button sx={{ m: 2 }} className='back-btn' onClick={() => {history.push('/')}}variant="contained">Back</Button>
+    </div>   
     )
 }
 
