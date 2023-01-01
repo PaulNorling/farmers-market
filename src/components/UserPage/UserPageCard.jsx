@@ -35,7 +35,7 @@ function UserPageCard({listing}) {
         />
         <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                {listing.description}
+                {listing.description.substring(0, 30)}...
             </Typography>
         </CardContent>
         <CardActions>
