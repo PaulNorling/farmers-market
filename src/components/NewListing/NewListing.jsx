@@ -39,8 +39,8 @@ function NewListing() {
 };
 
 return (
-  <div>
-    <form className="formPanel" onSubmit={addListing}>
+  <div className='new-listing'>
+    <form className="addListingForm" onSubmit={addListing}>
       <h1>New Listing</h1>
       {/* {errors.registrationMessage && (
         <h3 className="alert" role="alert">
@@ -50,14 +50,14 @@ return (
       <div>
         <label htmlFor="heading">
           Listing Title:
-          <input
+        </label>
+        <input
             type="text"
             name="heading"
             value={heading}
             // required
             onChange={(event) => setHeading(event.target.value)}
           />
-        </label>
       </div>
       <div>
         <label htmlFor="name">
@@ -135,6 +135,7 @@ return (
         <label htmlFor="description">
           Description:
           <input
+            className='descriptionInput'
             type="text"
             name="description"
             value={description}
