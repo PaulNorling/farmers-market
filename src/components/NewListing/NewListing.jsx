@@ -13,13 +13,13 @@ function NewListing() {
   const dispatch = useDispatch();  
 
   const [heading, setHeading] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
+  const [name, setName] = useState('');
+  //const [price, setPrice] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
-
+  const [description, setDescription] = useState('');
   const addListing = (event) => {
     event.preventDefault();
     console.log('clicked!!!')
@@ -28,19 +28,19 @@ function NewListing() {
         type: 'ADD_LISTING',
         payload: {
             heading: heading,
-            description: description,
-            price: price,
+            name: name,
             address: address,
             phone_number: phoneNumber,
             email: email,
             image: image,
+            description: description,
         }
     })
 };
 
 return (
-  <div>
-    <form className="formPanel" onSubmit={addListing}>
+  <div className='new-listing'>
+    <form className="addListingForm" onSubmit={addListing}>
       <h1>New Listing</h1>
       {/* {errors.registrationMessage && (
         <h3 className="alert" role="alert">
@@ -49,32 +49,47 @@ return (
       )} */}
       <div>
         <label htmlFor="heading">
-          Heading:
-          <input
+          Listing Title:
+        </label>
+        <input
+            className='listingInput'
             type="text"
             name="heading"
             value={heading}
             // required
             onChange={(event) => setHeading(event.target.value)}
           />
-        </label>
       </div>
       <div>
+        <label htmlFor="name">
+          Name:
+          <input
+            className='listingInput'
+            type="text"
+            name="name"
+            value={name}
+            // required
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
+      </div>
+      {/* <div>
         <label htmlFor="price">
           Price:
           <input
             type="text"
             name="price"
             value={price}
-            // required
+            required
             onChange={(event) => setPrice(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
       <div>
         <label htmlFor="address">
           Address:
           <input
+            className='listingInput'
             type="text"
             name="address"
             value={address}
@@ -87,6 +102,7 @@ return (
         <label htmlFor="phoneNumber">
           Phone:
           <input
+            className='listingInput'
             type="text"
             name="phoneNumber"
             value={phoneNumber}
@@ -99,6 +115,7 @@ return (
         <label htmlFor="email">
           Email:
           <input
+            className='listingInput'
             type="text"
             name="email"
             value={email}
@@ -111,6 +128,7 @@ return (
         <label htmlFor="image">
           Image File:
           <input
+            className='listingInput'
             type="text"
             name="image"
             value={image}
@@ -122,7 +140,8 @@ return (
       <div>
         <label htmlFor="description">
           Description:
-          <input
+          <textarea
+            className='descriptionInput'
             type="text"
             name="description"
             value={description}

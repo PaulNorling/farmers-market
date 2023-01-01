@@ -46,13 +46,13 @@ function YourListingsCard({listing}) {
         <CardActions className='icons'>
             {/* <Button onClick={handleDelete} size="small">Delete</Button> */}
             <Tooltip title="Delete">
-                <IconButton>
-                    <DeleteIcon onClick={handleDelete}/>
+                <IconButton onClick={handleDelete}>
+                    <DeleteIcon />
                 </IconButton>
             </Tooltip>
             <Tooltip title="Edit">
-                <IconButton>
-                    <EditIcon className='edit-icon' onClick={() => handleEdit(listing)}/>
+                <IconButton onClick={() => handleEdit(listing)}>
+                    <EditIcon className='edit-icon' />
                 </IconButton>
             </Tooltip>
             {/* <Button onClick={() => handleEdit(listing)} size="small">Edit</Button> */}

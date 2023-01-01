@@ -18,7 +18,7 @@ function EditPage() {
 
   const [heading, setHeading] = useState(detail.item);
   const [description, setDescription] = useState(detail.description);
-  const [price, setPrice] = useState(detail.item_price);
+  const [name, setName] = useState(detail.name);
   const [address, setAddress] = useState(detail.address);
   const [phoneNumber, setPhoneNumber] = useState(detail.phone_number);
   const [email, setEmail] = useState(detail.email);
@@ -33,7 +33,7 @@ function EditPage() {
             id: detail.id,
             heading: heading,
             description: description,
-            price: price,
+            name: name,
             address: address,
             phone_number: phoneNumber,
             email: email,
@@ -44,12 +44,13 @@ function EditPage() {
 
 return (
   <div>     
-    <form className="formPanel" onSubmit={editListing}>
+    <form className="addListingForm" onSubmit={editListing}>
       <h1>Edit Listing</h1>
       <div>
         <label htmlFor="heading">
-          Heading:
+          Listing Title:
           <input
+            className='listingInput'
             type="text"
             name="heading"
             value={heading}
@@ -59,6 +60,19 @@ return (
         </label>
       </div>
       <div>
+        <label htmlFor="name">
+          Name:
+          <input
+            className='listingInput'
+            type="text"
+            name="name"
+            value={name}
+            // required
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
+      </div>
+      {/* <div>
         <label htmlFor="price">
           Price:
           <input
@@ -69,11 +83,12 @@ return (
             onChange={(event) => setPrice(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
       <div>
         <label htmlFor="address">
           Address:
           <input
+            className='listingInput'
             type="text"
             name="address"
             value={address}
@@ -86,6 +101,7 @@ return (
         <label htmlFor="phoneNumber">
           Phone:
           <input
+            className='listingInput'
             type="text"
             name="phoneNumber"
             value={phoneNumber}
@@ -98,6 +114,7 @@ return (
         <label htmlFor="email">
           Email:
           <input
+            className='listingInput'
             type="text"
             name="email"
             value={email}
@@ -110,6 +127,7 @@ return (
         <label htmlFor="image">
           Image File:
           <input
+            className='listingInput'
             type="text"
             name="image"
             value={image}
@@ -121,8 +139,8 @@ return (
       <div>
         <label htmlFor="description">
           Description:
-          <input
-            className='description-input'
+          <textarea
+            className='descriptionInput'
             type="text"
             name="description"
             value={description}

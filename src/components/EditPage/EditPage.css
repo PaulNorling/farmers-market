@@ -1,3 +1,32 @@
 .back {
     margin: 20px;
 }
+.addListingForm {
+    /* box-sizing: border-box; */
+    width: 70vw;
+    max-width: 100%;
+    padding: 25px;
+    margin: 0 auto 20px;
+    background-color: #efefef;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  }
+
+input, label {
+    display:block;
+}
+
+.listingInput {
+    width: 65vw;
+    font-family: sans-serif;
+}
+
+.descriptionInput {
+    width: 65vw;
+    height: 10vh;
+    margin-left: 5px;
+}
+
+textarea {
+    font-family: sans-serif;
+}
