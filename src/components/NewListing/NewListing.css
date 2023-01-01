@@ -17,11 +17,17 @@
     display:block;
 }
 
-input {
+.listingInput {
     width: 65vw;
+    font-family: sans-serif;
 }
 
 .descriptionInput {
     width: 65vw;
-    height: 30vh;
+    height: 10vh;
+    margin-left: 5px;
+}
+
+textarea {
+    font-family: sans-serif;
 }

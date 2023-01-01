@@ -44,12 +44,13 @@ function EditPage() {
 
 return (
   <div>     
-    <form className="formPanel" onSubmit={editListing}>
+    <form className="addListingForm" onSubmit={editListing}>
       <h1>Edit Listing</h1>
       <div>
         <label htmlFor="heading">
           Listing Title:
           <input
+            className='listingInput'
             type="text"
             name="heading"
             value={heading}
@@ -62,6 +63,7 @@ return (
         <label htmlFor="name">
           Name:
           <input
+            className='listingInput'
             type="text"
             name="name"
             value={name}
@@ -86,6 +88,7 @@ return (
         <label htmlFor="address">
           Address:
           <input
+            className='listingInput'
             type="text"
             name="address"
             value={address}
@@ -98,6 +101,7 @@ return (
         <label htmlFor="phoneNumber">
           Phone:
           <input
+            className='listingInput'
             type="text"
             name="phoneNumber"
             value={phoneNumber}
@@ -110,6 +114,7 @@ return (
         <label htmlFor="email">
           Email:
           <input
+            className='listingInput'
             type="text"
             name="email"
             value={email}
@@ -122,6 +127,7 @@ return (
         <label htmlFor="image">
           Image File:
           <input
+            className='listingInput'
             type="text"
             name="image"
             value={image}
@@ -133,8 +139,8 @@ return (
       <div>
         <label htmlFor="description">
           Description:
-          <input
-            className='description-input'
+          <textarea
+            className='descriptionInput'
             type="text"
             name="description"
             value={description}
