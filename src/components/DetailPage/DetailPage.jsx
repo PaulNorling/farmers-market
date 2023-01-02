@@ -62,6 +62,7 @@ function DetailPage() {
                 user_id: user.id
             }
         })
+        dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
     };
 
     function notFavorite(){
@@ -70,6 +71,7 @@ function DetailPage() {
         dispatch({ type: 'DELETE_FAVORITE', 
                    payload: params.id    
                 })
+        dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
     }
 
 
