@@ -21,7 +21,9 @@ function DetailPage() {
 
     const favorites = useSelector(store => store.favorite)
 
-    const [isFavorite, setIsFavorite] = useState(false);
+    //const [isFavorite, setIsFavorite] = useState(false);
+
+    console.log('DETAIL', favorites)
 
     // if(!favorites){
     //   return (
@@ -39,19 +41,20 @@ function DetailPage() {
     // }, []);
 
     useEffect(() => {
+        dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
-        favorites.map(favorite => {
-            if(favorite.bookmark_listings_id == params.id){
-              console.log('Favorite!', favorite)
-              setIsFavorite(!isFavorite);
-            }
-          });
+        // favorites.map(favorite => {
+        //     if(favorite.bookmark_listings_id == params.id){
+        //       console.log('Favorite!', favorite)
+        //       setIsFavorite(true);
+        //     }
+        //   });
     }, []);
 
     
     function favorite() {
         console.log('clicked', params.id, user.id)
-        setIsFavorite(!isFavorite);
+        //setIsFavorite(!isFavorite);
         dispatch({ 
             type: 'ADD_FAVORITE', 
             payload: {
@@ -62,7 +65,7 @@ function DetailPage() {
     };
 
     function notFavorite(){
-        setIsFavorite(!isFavorite);
+        //setIsFavorite(!isFavorite);
         console.log('notFavorite', params.id)
         dispatch({ type: 'DELETE_FAVORITE', 
                    payload: params.id    
@@ -70,10 +73,10 @@ function DetailPage() {
     }
 
 
-    console.log('detail', params.id)
+    
     return(
         <div className="detail-container">
-            {isFavorite ? <FavoriteIcon onClick={notFavorite} className='fav-icon'/> : <FavoriteBorderIcon onClick={favorite} className='not-fav-icon'/>}
+            {favorites[0] ? <FavoriteIcon onClick={notFavorite} className='fav-icon'/> : <FavoriteBorderIcon onClick={favorite} className='not-fav-icon'/>}
         {/* loop through array of 1 any better ideas?  */}
          {detail.map(info => {
           return(
