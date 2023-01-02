@@ -9,9 +9,10 @@ router.get('/', (req, res) => {
   
   // GET route code here
   const query = `SELECT * 
-  FROM listings`;
+  FROM listings
+  WHERE "listings"."zip"=$1;`;
   
-  pool.query(query)
+  pool.query(query, [req.user.zip])
     .then( result => {
       //console.log('GET IT!!', result.rows)
       res.send(result.rows);

@@ -42,8 +42,8 @@
 } */
 
 .user-greeting {
-    font-size: x-large;
+    font-size: medium;
     font-weight: 700;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-right: 10px;
 }

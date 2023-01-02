@@ -10,10 +10,12 @@ function Header() {
                 <img className="radish-img" src="./images/radish2.png"/>
                 <h1>Farmers Marketplace</h1>
             </div>
+            {user.id &&(
             <div className="container">
               <div className='user-greeting'>Welcome, {user.username}</div>
               <LogOutButton className="logout-btn" />
             </div>
+            )}
         </header>
     )
     }
