@@ -24,14 +24,14 @@ router.get('/:id', (req, res) => {
     FROM "listings"
     JOIN "bookmarks"
     ON "listings"."id" = "bookmarks"."bookmark_listings_id"
-    WHERE "bookmarks"."bookmark_user_id"=$1;`
-    pool.query(query, [req.params.id])
+    WHERE "bookmarks"."bookmark_user_id"=$1 AND "bookmarks"."bookmark_listings_id" =$2;`
+    pool.query(query, [req.user.id, req.params.id])
     .then((result) => {
       //console.log('get favorites!', result.rows);
       res.send(result.rows);
   })
   .catch((error) => {
-      console.log('Error getting favorite');
+      console.log('Error getting favorite', error);
       res.sendStatus(500);
   })        
 });

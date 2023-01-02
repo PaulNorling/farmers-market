@@ -16,7 +16,6 @@ function UserPage() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_LISTINGS' });
-    dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
 }, []);
 
   return (
