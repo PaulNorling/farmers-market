@@ -84,7 +84,7 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(200);
     })
     .catch((error) => {
-        console.log('Error DELETEing');
+        console.log('Error DELETEing', error);
         res.sendStatus(500);
     })
 })

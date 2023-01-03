@@ -10,7 +10,8 @@ function Search() {
 
     function handleClick() {
         console.log(zip)
-
+        dispatch({ type: 'SEARCH_FETCH',
+                   payload: zip})
     }
 
     return (
