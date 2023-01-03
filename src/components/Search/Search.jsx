@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import UserPageCard from '../UserPage/UserPageCard';
 
 function Search() {
 
@@ -23,6 +24,13 @@ function Search() {
           <div>Search by Zip</div>
           <input onChange={(event) => setZip(event.target.value)}/>
           <button onClick={handleClick}>Search</button>
+          <div className='cardGrid'>
+        {listings.map(listing => {
+          return (
+            <UserPageCard key={listing.id} listing={listing}/>
+          )
+        })}
+      </div>
         </div>
     )
 }
