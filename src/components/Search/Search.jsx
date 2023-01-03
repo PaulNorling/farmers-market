@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Search() {
 
     const dispatch = useDispatch();  
+
+    const listings = useSelector((store) => store.search);
+  
+    console.log('searchpage', listings);
 
     const [zip, setZip] = useState('');
     
