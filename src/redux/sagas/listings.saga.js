@@ -60,6 +60,15 @@ function* editListing(action) {
     }
 }
 
+function* searchListing(action) {
+    console.log('SEARCH', action.payload)
+    try{
+        const searchResult = yield axios.get(`/api/listing/search/${action.payload}`);
+        yield put ({ type: 'SET_SEARCH', payload: searchResult.data})
+    }catch {
+        console.log('SEARCH error');
+    }
+}
 
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
@@ -68,6 +77,7 @@ function* listingsSaga() {
     yield takeLatest('FETCH_DETAIL', fetchDetail);
     yield takeLatest('DELETE_LISTING', deleteListing);
     yield takeLatest('EDIT_LISTING', editListing);
+    yield takeLatest('SEARCH_FETCH', searchListing);
     
 
 }

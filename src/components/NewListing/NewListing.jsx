@@ -20,6 +20,7 @@ function NewListing() {
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
+  
   const addListing = (event) => {
     event.preventDefault();
     console.log('clicked!!!')

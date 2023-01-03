@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 // import LogOutButton from '../LogOutButton/LogOutButton';
 import {useDispatch, useSelector} from 'react-redux';
 import UserPageCard from './UserPageCard';
+import Search from '../Search/Search';
 import './UserPage.css'
 
 function UserPage() {
@@ -20,6 +21,7 @@ function UserPage() {
 
   return (
     <main>
+      <Search/>
       <div className='cardGrid'>
         {listings.map(listing => {
           return (

@@ -4,6 +4,7 @@ import user from './user.reducer';
 import listings from './listings.reducer'
 import edit from './edit.reducer';
 import favorite from './favorite.reducer'
+import search from  './search.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   listings,
   edit,
   favorite,
+  search,
 });
 
 export default rootReducer;

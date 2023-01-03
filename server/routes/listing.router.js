@@ -84,7 +84,7 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(200);
     })
     .catch((error) => {
-        console.log('Error DELETEing');
+        console.log('Error DELETEing', error);
         res.sendStatus(500);
     })
 })
@@ -118,6 +118,23 @@ router.put('/', (req, res) => {
         console.log('Error PUTing', error);
         res.sendStatus(500);
     })             
+})
+
+router.get('/search/:id', (req, res) => {
+  console.log('router.SEARCH', req.params.id);
+  const query = `SELECT *
+  FROM listings
+  WHERE "zip"=$1` 
+
+  pool.query(query, [req.params.id])
+    .then( result => {
+      console.log('SEARCH!!', result.rows)
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('ERROR: SEARCH', error);
+      res.sendStatus(500)
+    })
 })
 
 

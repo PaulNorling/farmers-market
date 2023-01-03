@@ -20,7 +20,11 @@ function YourListingsCard({listing}) {
 
     function handleDelete() {
         console.log('delete', listing.id)
+        dispatch({ type: 'DELETE_FAVORITE', 
+                   payload: listing.id    
+                })
         dispatch({ type: 'DELETE_LISTING', payload: listing.id });
+
     }
 
     const handleEdit = (listing) => {
