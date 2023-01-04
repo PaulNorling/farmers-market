@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import UserPageCard from './UserPageCard';
 import Search from '../Search/Search';
+import Map from '../Map/Map';
 import './UserPage.css'
 
 function UserPage() {
@@ -22,6 +23,7 @@ function UserPage() {
   return (
     <main>
       <Search/>
+      <Map />
       <div className='cardGrid'>
         {listings.map(listing => {
           return (

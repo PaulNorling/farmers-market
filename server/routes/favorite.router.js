@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
       res.sendStatus(200);
   })
   .catch((error) => {
-      console.log('Error adding favorite');
+      console.log('Error adding favorite', error);
       res.sendStatus(500);
   })        
   })
