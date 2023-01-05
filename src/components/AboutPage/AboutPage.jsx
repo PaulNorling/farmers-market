@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p>"Looking to shop small and support your community? Our farmers market app connects consumers with local farmers and producers, making it easy to find and purchase fresh, sustainably grown produce and goods. With features like , our app simplifies the process of supporting small businesses and eating healthily. Plus, by shopping at a farmers market, you'll be reducing your carbon footprint and supporting your community. Try it out and discover the benefits of buying local!"</p>
       </div>
     </div>
   );
