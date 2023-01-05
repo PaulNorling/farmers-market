@@ -24,6 +24,7 @@ import YourListings from '../YourListings/YourListings';
 import DetailPage from '../DetailPage/DetailPage';
 import EditPage from '../EditPage/EditPage';
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
+import Search from '../Search/Search';
 import './App.css';
 
 
@@ -66,6 +67,15 @@ function App() {
           >
             <UserPage />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Search else shows LoginPage
+            exact
+            path="/search"
+          >
+            <Search />
+          </ProtectedRoute>
+
 
           <ProtectedRoute
             // logged in shows NewListing else shows LoginPage
