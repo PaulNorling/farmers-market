@@ -30,7 +30,7 @@ function YourListingsCard({listing}) {
 
     const handleEdit = (listing) => {
         console.log('handleEdit', listing)
-        history.push('/edit')
+        history.push(`/edit/${listing.id}`)
         dispatch({ type: 'SET_EDIT_STATE', payload: listing})
     }
 

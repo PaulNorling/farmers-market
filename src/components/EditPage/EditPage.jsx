@@ -8,13 +8,21 @@ import './EditPage.css'
 
 function EditPage() {
 
+  const params = useParams();
+
   const history = useHistory();
 
   const detail = useSelector(store => store.edit)
+
+  //const detail = useSelector(store => store.listings)
     
-  console.log('editpage', detail.id)
+  console.log('editpage', detail[0])
 
   const dispatch = useDispatch(); 
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_DETAIL', payload: params.id});
+}, []);
 
   const [heading, setHeading] = useState(detail.item);
   const [description, setDescription] = useState(detail.description);

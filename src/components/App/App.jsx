@@ -96,7 +96,7 @@ function App() {
           <ProtectedRoute
             // logged in shows YourListing else shows LoginPage
             exact
-            path="/edit"
+            path="/edit/:id"
           >
             <EditPage />
           </ProtectedRoute>
