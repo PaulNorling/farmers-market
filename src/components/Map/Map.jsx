@@ -23,7 +23,7 @@ function Map(){
         
         <LoadScript
             //   googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-            googleMapsApiKey="AIzaSyDUfU_ABXSMfT3wEt8wtR3khJpADp-rpYk">
+            googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
             <GoogleMap 
               zoom={10} 
               center={{lat: 44.9778, lng: -93.2650}}
