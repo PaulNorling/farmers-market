@@ -20,18 +20,18 @@ function FavoritesPageCard({listing}) {
     const dispatch = useDispatch();
 
     function handleDelete() {
-        dispatch({ type: 'DELETE_FAVORITE', 
+
+          dispatch({ type: 'DELETE_FAVORITE', 
                     payload: listing.bookmark_listings_id
-                })
-        dispatch({ type: 'FETCH_FAVORITES_BY_USER' });
+                  })
+          dispatch({ type: 'FETCH_FAVORITES_BY_USER' });
+    
     }
 
     function handleClick() {
         console.log('favoritesPageCard', listing.bookmark_listings_id)
         history.push(`/detail/${listing.bookmark_listings_id
         }`)
-        //fetch favorites before detail page load to give time for loop
-        // dispatch({ type: 'FETCH_FAVORITE', payload: user.id});
     }
 
     return (

@@ -23,7 +23,8 @@ function YourListingsCard({listing}) {
         dispatch({ type: 'DELETE_FAVORITE', 
                    payload: listing.id    
                 })
-        dispatch({ type: 'DELETE_LISTING', payload: listing.id });
+        dispatch({ type: 'DELETE_LISTING',
+                   payload: listing.id });
 
     }
 

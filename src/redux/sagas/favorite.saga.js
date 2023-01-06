@@ -5,7 +5,8 @@ function* addFavorite(action) {
     console.log('addFavoriteSaga', action.payload)
     try{
         yield axios.post(`/api/favorite`, action.payload)
-        //yield fetchFavorite();
+        // yield put({type: 'FETCH_FAVORITE'})
+        fetchFavorite();
     }catch {
         console.log('FAV error');
     }
@@ -26,7 +27,8 @@ function* deleteFavorite(action) {
     console.log('deleteFav', action.payload)
     try{
         yield axios.delete(`/api/favorite/${action.payload}`);
-        //yield fetchFavorite();
+        // yield put({type: 'FETCH_FAVORITE'})
+        fetchFavorite();
     }catch {
         console.log('delete error');
     }

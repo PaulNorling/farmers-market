@@ -28,8 +28,9 @@ function DetailPage() {
         dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
     }, []);
+       
 
-    
+    // await? dispatch
     function favorite() {
         console.log('clicked', params.id, user.id)
         dispatch({ 
