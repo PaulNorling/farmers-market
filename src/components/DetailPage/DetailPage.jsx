@@ -27,6 +27,7 @@ function DetailPage() {
     useEffect(() => {
         dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
         dispatch({ type: 'FETCH_DETAIL', payload: params.id});
+        window.scrollTo(0,0)
     }, []);
        
 
