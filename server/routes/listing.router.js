@@ -99,8 +99,10 @@ router.put('/', (req, res) => {
                 address= $4,
                 phone_number = $5,
                 email = $6,
-                image = $7
-                WHERE id = $8`
+                image = $7,
+                latitude = $8,
+                longitude = $9
+                WHERE id = $10`
    pool.query(query, [
     req.body.heading,
     req.body.name,
@@ -109,6 +111,8 @@ router.put('/', (req, res) => {
     req.body.phone_number,
     req.body.email,
     req.body.image,
+    req.body.latitude,
+    req.body.longitude,
     req.body.id,
    ])
     .then(() => {

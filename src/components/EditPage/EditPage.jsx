@@ -31,6 +31,8 @@ function EditPage() {
   const [phoneNumber, setPhoneNumber] = useState(detail.phone_number);
   const [email, setEmail] = useState(detail.email);
   const [image, setImage] = useState(detail.image);
+  const [latitude, setLatitude] = useState(detail.latitude);
+  const [longitude, setLongitude] = useState(detail.longitude);
 
   const editListing = (event) => {
     event.preventDefault();
@@ -45,6 +47,8 @@ function EditPage() {
             address: address,
             phone_number: phoneNumber,
             email: email,
+            latitude: latitude,
+            longitude: longitude,
             image: image,
         }
     })
@@ -141,6 +145,32 @@ return (
             value={image}
             // required
             onChange={(event) => setImage(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="lat">
+          Latitude:
+          <input
+            className='latitudeInput'
+            type="number"
+            name="latitude"
+            value={latitude}
+            // required
+            onChange={(event) => setLatitude(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="lng">
+          Longitude:
+          <input
+            className='longitudeInput'
+            type="number"
+            name="longitude"
+            value={longitude}
+            // required
+            onChange={(event) => setLongitude(event.target.value)}
           />
         </label>
       </div>
