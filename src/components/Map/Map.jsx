@@ -44,7 +44,7 @@ function Map(){
         // console.log('Map Map', {lat: location.latitude, lng: location.longitude}, coordinates)
         return (
           <div key ={location.id}>
-            <MarkerF onLoad={onLoad} position={coordinates}/>
+            <MarkerF onLoad={onLoad} position={coordinates} onClick={() => {history.push(`/detail/${location.id}`)}}/>
           </div>
         )
       })}
