@@ -13,11 +13,11 @@ function* fetchListings() {
 }
 
 function* addListing(action) {
-    //console.log('addListing', action.payload)
+    console.log('addListing', action.payload)
     try {
         yield axios.post('/api/listing', action.payload)
-    }catch {
-        console.log('post error listing.saga');
+    }catch(error) {
+        console.log('post error listing.saga', error);
     }
 }
 

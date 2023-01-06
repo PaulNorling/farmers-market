@@ -20,7 +20,9 @@ function NewListing() {
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
-  
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
   const addListing = (event) => {
     event.preventDefault();
     console.log('clicked!!!')
@@ -34,6 +36,8 @@ function NewListing() {
             phone_number: phoneNumber,
             email: email,
             image: image,
+            latitude: latitude,
+            longitude: longitude,
             description: description,
         }
     })
@@ -135,6 +139,32 @@ return (
             value={image}
             // required
             onChange={(event) => setImage(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="lat">
+          Latitude:
+          <input
+            className='latitudeInput'
+            type="number"
+            name="latitude"
+            value={latitude}
+            // required
+            onChange={(event) => setLatitude(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="lng">
+          Longitude:
+          <input
+            className='longitudeInput'
+            type="number"
+            name="longitude"
+            value={longitude}
+            // required
+            onChange={(event) => setLongitude(event.target.value)}
           />
         </label>
       </div>
