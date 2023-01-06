@@ -22,8 +22,7 @@ function UserPage() {
 
   return (
     <main>
-      <Search/>
-      <Map />
+      <h1>Listings near you</h1>
       <div className='cardGrid'>
         {listings.map(listing => {
           return (

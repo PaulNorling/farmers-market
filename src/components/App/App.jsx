@@ -24,6 +24,7 @@ import YourListings from '../YourListings/YourListings';
 import DetailPage from '../DetailPage/DetailPage';
 import EditPage from '../EditPage/EditPage';
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
+import Search from '../Search/Search';
 import './App.css';
 
 
@@ -68,6 +69,15 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            // logged in shows Search else shows LoginPage
+            exact
+            path="/search"
+          >
+            <Search />
+          </ProtectedRoute>
+
+
+          <ProtectedRoute
             // logged in shows NewListing else shows LoginPage
             exact
             path="/newListing"
@@ -86,7 +96,7 @@ function App() {
           <ProtectedRoute
             // logged in shows YourListing else shows LoginPage
             exact
-            path="/edit"
+            path="/edit/:id"
           >
             <EditPage />
           </ProtectedRoute>

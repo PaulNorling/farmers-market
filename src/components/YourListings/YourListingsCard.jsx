@@ -23,13 +23,14 @@ function YourListingsCard({listing}) {
         dispatch({ type: 'DELETE_FAVORITE', 
                    payload: listing.id    
                 })
-        dispatch({ type: 'DELETE_LISTING', payload: listing.id });
+        dispatch({ type: 'DELETE_LISTING',
+                   payload: listing.id });
 
     }
 
     const handleEdit = (listing) => {
         console.log('handleEdit', listing)
-        history.push('/edit')
+        history.push(`/edit/${listing.id}`)
         dispatch({ type: 'SET_EDIT_STATE', payload: listing})
     }
 
