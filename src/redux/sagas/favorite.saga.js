@@ -2,11 +2,10 @@ import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* addFavorite(action) {
-    console.log('addFavoriteSaga', action.payload)
+    console.log('addFavoriteSaga', action.payload.listings_id)
     try{
         yield axios.post(`/api/favorite`, action.payload)
-        // yield put({type: 'FETCH_FAVORITE'})
-        fetchFavorite();
+        //yield put ({type: 'FETCH_FAVORITE', action.payload.listings_id})
     }catch {
         console.log('FAV error');
     }
@@ -27,8 +26,7 @@ function* deleteFavorite(action) {
     console.log('deleteFav', action.payload)
     try{
         yield axios.delete(`/api/favorite/${action.payload}`);
-        // yield put({type: 'FETCH_FAVORITE'})
-        fetchFavorite();
+        yield put ({type: 'FETCH_FAVORITES_BY_USER'})
     }catch {
         console.log('delete error');
     }

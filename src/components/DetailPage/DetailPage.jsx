@@ -38,10 +38,12 @@ function DetailPage() {
             type: 'ADD_FAVORITE', 
             payload: {
                 listings_id: params.id,
+                //remove un needed really stupid!
                 user_id: user.id
             }
         })
         dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
+        dispatch({ type: 'FETCH_DETAIL', payload: params.id});
     };
 
     function notFavorite(){
@@ -50,6 +52,7 @@ function DetailPage() {
                    payload: params.id    
                 })
         dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
+        dispatch({ type: 'FETCH_DETAIL', payload: params.id});
     }
 
 
