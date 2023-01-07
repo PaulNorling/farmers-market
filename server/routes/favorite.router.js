@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.post('/', (req, res) => {
-    //console.log('router POST favorite', req.body)
+    console.log('router POST favorite', req.body)
     const query = `INSERT INTO "bookmarks" (bookmark_user_id, bookmark_listings_id)
                    VALUES ($1, $2)`
     pool.query(query, [req.body.user_id, req.body.listings_id])
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
   })
 
 router.get('/:id', (req, res) => {
-    //console.log('favoriteRouter', req.params.id)
+    console.log('favoriteRouter', req.params.id)
     const query = `SELECT *
     FROM "listings"
     JOIN "bookmarks"

@@ -34,6 +34,7 @@ function DetailPage() {
     // await? dispatch
     function favorite() {
         console.log('clicked', params.id, user.id)
+        //dispatch({ type: 'ADD_FAVORITE', payload: params.id})
         dispatch({ 
             type: 'ADD_FAVORITE', 
             payload: {
@@ -41,19 +42,13 @@ function DetailPage() {
                 //remove un needed really stupid!
                 user_id: user.id
             }
-        })
-        dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
-        dispatch({ type: 'FETCH_DETAIL', payload: params.id});
+         })
     };
 
     function notFavorite(){
-        console.log('notFavorite', params.id)
-        dispatch({ type: 'DELETE_FAVORITE', 
-                   payload: params.id    
-                })
-        dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
-        dispatch({ type: 'FETCH_DETAIL', payload: params.id});
-    }
+        //console.log('notFavorite', params.id)
+        dispatch({ type: 'DELETE_FAVORITE', payload: params.id})
+    };
 
 
     // favorites[0]?.id
