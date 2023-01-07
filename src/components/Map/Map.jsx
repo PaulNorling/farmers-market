@@ -41,14 +41,12 @@ function Map(){
       >
       {listings.map(location => {
         const coordinates = {lat: +location.latitude, lng: +location.longitude};
-        // console.log('Map Map', {lat: location.latitude, lng: location.longitude}, coordinates)
         return (
           <div key ={location.id}>
             <MarkerF onLoad={onLoad} position={coordinates} onClick={() => {history.push(`/detail/${location.id}`)}}/>
           </div>
         )
       })}
-        <MarkerF onClick={mpls} onLoad={onLoad} position= {{lat: 44.9778, lng: -93.2650}}/>
       </GoogleMap>
       </LoadScript>
     )
