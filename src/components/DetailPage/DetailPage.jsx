@@ -35,14 +35,7 @@ function DetailPage() {
     function favorite() {
         console.log('clicked', params.id, user.id)
         //dispatch({ type: 'ADD_FAVORITE', payload: params.id})
-        dispatch({ 
-            type: 'ADD_FAVORITE', 
-            payload: {
-                listings_id: params.id,
-                //remove un needed really stupid!
-                user_id: user.id
-            }
-         })
+        dispatch({ type: 'ADD_FAVORITE', payload: {listings_id: params.id}})
     };
 
     function notFavorite(){
