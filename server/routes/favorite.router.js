@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     console.log('router POST favorite', req.body)
     const query = `INSERT INTO "bookmarks" (bookmark_user_id, bookmark_listings_id)
                    VALUES ($1, $2)`
-    pool.query(query, [req.body.user_id, req.body.listings_id])
+    pool.query(query, [req.user.id, req.body.listings_id])
     .then(() => {
       console.log('favorite added!');
       res.sendStatus(200);

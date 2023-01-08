@@ -2,7 +2,7 @@ import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* addFavorite(action) {
-    console.log('addFavoriteSaga', action.payload.listings_id)
+    console.log('addFavoriteSaga', action.payload)
     try{
         yield axios.post(`/api/favorite`, action.payload)
         yield put ({type: 'FETCH_FAVORITE', payload: action.payload.listings_id})
