@@ -1,0 +1,26 @@
+import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
+ 
+
+function Carousel() {
+    const slides = [
+        { title: 'First item', description: 'Lorem ipsum'},
+        { title: 'Second item', description: 'Lorem ipsum'},
+        { title: 'Third item', description: 'Lorem ipsum'}
+      ];
+    return (
+        <Slider 
+        infinite='true'
+        autoplay='1000'
+        previousButton=''
+        nextButton=''
+        >
+        {slides.map((slide, index) => <div key={index}>
+          <h2>{slide.title}</h2>
+          <div>{slide.description}</div>
+        </div>)}
+      </Slider>
+        )
+}
+
+export default Carousel;
