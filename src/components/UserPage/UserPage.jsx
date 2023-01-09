@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import UserPageCard from './UserPageCard';
 import Search from '../Search/Search';
+import Carousel from '../Carousel/Carousel';
 import Map from '../Map/Map';
 import './UserPage.css'
 
@@ -22,6 +23,8 @@ function UserPage() {
 
   return (
     <main>
+      <Carousel />
+      <Map />
       <h1>Listings near you</h1>
       <div className='cardGrid'>
         {listings.map(listing => {
