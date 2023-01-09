@@ -7,8 +7,7 @@ import './Map.css'
 
 function Map(){
 
-    
-
+  
     const history = useHistory();
 
     const dispatch = useDispatch();
