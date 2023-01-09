@@ -7,7 +7,18 @@ import './Footer.css';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
-  return <footer>&copy; Farmers Marketplace</footer>;
+  return <footer>
+      <div>
+        &copy; Farmers Marketplace
+      </div>
+      <div className='media-icons'>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-pinterest"></a>
+      </div>
+    </footer>;
+  
 }
 
 export default Footer;
