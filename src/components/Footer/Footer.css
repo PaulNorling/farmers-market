@@ -6,8 +6,7 @@ footer {
   /* background-color: #20232A; */
   background-color: #001722;
   color: white;
-  display: flex;
-  flex-direction: row;
+  
 }
 
 .fa {
@@ -25,7 +24,7 @@ footer {
 .media-icons {
   display: flex;
   flex-direction: row;
-  margin-left: auto;
+  justify-content: right;
 }
 
 .fa:hover {
