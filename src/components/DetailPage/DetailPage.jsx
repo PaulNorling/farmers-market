@@ -47,7 +47,10 @@ function DetailPage() {
     // favorites[0]?.id
     return(
         <div className="detail-container">
-            {favorites[0] ? <FavoriteIcon onClick={notFavorite} className='fav-icon'/> : <FavoriteBorderIcon onClick={favorite} className='not-fav-icon'/>}
+            <div>
+              {favorites[0] ? <FavoriteIcon onClick={notFavorite} className='fav-icon'/> : <FavoriteBorderIcon onClick={favorite} className='not-fav-icon'/>}
+              
+            </div>
         {/* loop through array of 1 any better ideas?  */}
          {detail.map(info => {
           return(
@@ -64,7 +67,7 @@ function DetailPage() {
                         <h5>Address</h5>
                         <h4>{info.address}</h4>
                         <h5>Email</h5>
-                        <h4>{info.email}</h4>
+                        <a href={info.email}>{info.email}</a>
                         <h5>Phone Number</h5>
                         <h4>{info.phone_number}</h4>
                     </div>

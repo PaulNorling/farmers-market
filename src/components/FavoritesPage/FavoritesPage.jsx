@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import FavoritesPageCard from "./FavoritesPageCard";
+import './FavoritesPage.css'
 
 function FavoritesPage() {
 
@@ -16,8 +17,10 @@ function FavoritesPage() {
 
     return (
         
-        <main>
-        <h1>Your Favorites!</h1>
+        <main className='favorite-main'>
+       <div className='heading-container'>
+          <h2>Favorites!</h2>
+        </div>
           <div className='cardGrid'>
           {favorites.map(favorite => {
             return (

@@ -8,6 +8,7 @@
   margin: 0 0 30px;
   background-color: #001722;
   overflow: hidden;
+  border-bottom: 4px solid #f26924;
 }
 
 .nav a {
