@@ -2,4 +2,31 @@ footer {
   margin-top: 80px;
   padding: 20px;
   text-align: center;
+  /* background-color: #2c4762; */
+  /* background-color: #20232A; */
+  background-color: #001722;
+  color: white;
+  
+}
+
+.fa {
+  background: white;
+  /* color: #2c4762; */
+  color: #20232A;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 30px;
+  width: 30px;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.media-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.fa:hover {
+  opacity: 0.7;
 }

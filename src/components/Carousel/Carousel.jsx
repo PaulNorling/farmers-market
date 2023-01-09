@@ -9,8 +9,9 @@ function Carousel() {
     const slides = [
         { image: "https://media.istockphoto.com/id/1328004520/photo/healthy-young-soybean-crop-in-field-at-dawn.jpg?b=1&s=170667a&w=0&k=20&c=nb9fxR6z4ztjH_Ov-3NCHPd0O5SpBwxWXmKeEd4W9pc="},
         { image: "https://hvfarmhub.org/wp-content/uploads/2014/12/crops-03.jpg"},
-        { image: "https://www.realsimple.com/thmb/FZ8KbLWqpk01a4bRbjB4S3QE8pk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/plant-vegetables-2-25a60490e3544639bbeb0cc1c9387cf5.png"}
-      ];
+        { image: "https://www.arc2020.eu/wp-content/uploads/2019/02/poland-nature-3377523_960_720.jpg"},
+      //   { image: "https://i2-prod.cambridge-news.co.uk/incoming/article13547695.ece/ALTERNATES/s1200d/0_Rainbow-Bridge-Field.jpg"}
+       ];
 
     return (
         <Slider 
