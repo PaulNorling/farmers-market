@@ -24,6 +24,7 @@ function UserPage() {
   return (
     <main>
       <Carousel />
+      <Map />
       <h1>Listings near you</h1>
       <div className='cardGrid'>
         {listings.map(listing => {

@@ -7,7 +7,7 @@ import './Map.css'
 
 function Map(){
 
-    const places = [{location: {lat: 45.16173214652718, lng: -92.71747537315042}}, {location: {lat: 44.9537, lng: -93.0900}}, {location: {lat: 44.95, lng: -93}}]
+    
 
     const history = useHistory();
 
@@ -40,10 +40,10 @@ function Map(){
         mapContainerClassName="map-container"
       >
       {listings.map(location => {
-        const coordinates = {lat: +location.latitude, lng: +location.longitude};
+        // const coordinates = {lat: +location.latitude, lng: +location.longitude};
         return (
           <div key ={location.id}>
-            <MarkerF onLoad={onLoad} position={coordinates} onClick={() => {history.push(`/detail/${location.id}`)}}/>
+            <MarkerF onLoad={onLoad} position={{lat: +location.latitude, lng: +location.longitude}} onClick={() => {history.push(`/detail/${location.id}`)}}/>
           </div>
         )
       })}
