@@ -24,8 +24,13 @@ function UserPage() {
   return (
     <main>
       <Carousel />
+      <div className='heading-container'>
+        <h2>Find Local Markets</h2>
+      </div>
       <Map />
-      <h1>Listings near you</h1>
+      <div className='heading-container'>
+        <h2>Listings near you</h2>
+      </div>
       <div className='cardGrid'>
         {listings.map(listing => {
           return (
@@ -33,11 +38,6 @@ function UserPage() {
           )
         })}
       </div>
-      {/* <div className="container">
-        <h2>Welcome, {user.username}!</h2>
-        <p>Your ID is: {user.id}</p>
-        <LogOutButton className="btn" />
-      </div> */}
     </main>
   );
 }
