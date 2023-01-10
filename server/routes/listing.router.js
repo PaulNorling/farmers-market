@@ -10,16 +10,34 @@ router.get('/', (req, res) => {
   // GET route code here
   const query = `SELECT * 
   FROM listings
-  WHERE "listings"."zip"=$1
   ORDER BY "listings"."id";`;
   
-  pool.query(query, [req.user.zip])
+  pool.query(query)
     .then( result => {
       //console.log('GET IT!!', result.rows)
       res.send(result.rows);
     })
     .catch(err => {
       console.log('ERROR: Get all listings', err);
+      res.sendStatus(500)
+    })
+});
+
+router.get('/zip', (req, res) => {
+  
+  // GET route code here
+  const query = `SELECT * 
+  FROM listings
+  WHERE "listings"."zip"=$1
+  ORDER BY "listings"."id";`;
+  
+  pool.query(query, [req.user.zip])
+    .then( result => {
+      console.log('GET ZIP!!', result.rows)
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get ZIP listings', err);
       res.sendStatus(500)
     })
 });

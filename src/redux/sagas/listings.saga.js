@@ -1,5 +1,6 @@
 import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import { func } from 'prop-types';
 
 function* fetchListings() {
     console.log('fetchListings!')
@@ -70,6 +71,17 @@ function* searchListing(action) {
     }
 }
 
+function* fetchListingsByZip() {
+    console.log('fetchListingsByZip!')
+    try {
+        const listings = yield axios.get('/api/listing/zip');
+        console.log('listings.saga GET', listings.data)
+        yield put ({ type: 'SET_LISTINGS_BY_ZIP', payload: listings.data})
+    } catch {
+        console.log('get all error listing.saga');
+    }
+}
+
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
     yield takeLatest('ADD_LISTING', addListing);
@@ -78,7 +90,7 @@ function* listingsSaga() {
     yield takeLatest('DELETE_LISTING', deleteListing);
     yield takeLatest('EDIT_LISTING', editListing);
     yield takeLatest('SEARCH_FETCH', searchListing);
-    
+    yield takeLatest('FETCH_LISTINGS_BY_ZIP', fetchListingsByZip);
 
 }
 
