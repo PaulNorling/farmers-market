@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import YourListingsCard from './YourListingsCard';
+import './YourListings.css'
 
 function YourListings() {
     const dispatch = useDispatch();
@@ -13,8 +14,10 @@ function YourListings() {
     }, []);
 
     return (
-      <main>
-      <h1>Your Listings!</h1>
+      <main className='yourListings-main'>
+        <div className='heading-container'>
+          <h2>Your Listings!</h2>
+        </div>
         <div className='cardGrid'>
         {yourListings.map(listing => {
           return (

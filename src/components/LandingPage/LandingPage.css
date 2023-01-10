@@ -2,16 +2,26 @@
 Grid
 -------------------------------------------------------------------------------- */
 
-.grid {
+/* .grid {
   display: flex;
   flex: 0 1 auto;
-  /* defaults to 'row' */
+  defaults to 'row'
   flex-direction: row;
   flex-wrap: wrap;
-  /* defaults to 'flex-start' */
+  defaults to 'flex-start'
   justify-content: flex-start;
   align-items: flex-start;
+} */
+
+.landing-page-container {
+  min-height: 55vh;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* .grid-col_4 {
+  
+} */
 
 /* .grid-col {
   flex: 0 0 auto;
@@ -32,11 +42,6 @@ Grid
 .grid-col_3 {
   flex-basis: 25%;
   max-width: 25%;
-}
-
-.grid-col_4 {
-  flex-basis: 33.33333333%;
-  max-width: 33.33333333%;
 }
 
 .grid-col_5 {

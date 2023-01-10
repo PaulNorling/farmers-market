@@ -18,13 +18,10 @@ CREATE TABLE "user" (
 );
 
 CREATE TABLE "bookmarks" (
-	"id" SERIAL,
-	"bookmark_user_id" integer NOT NULL REFERENCES "user",
-	"bookmark_listings_id" integer NOT NULL REFERENCES listings,
-	PRIMARY KEY ("bookmark_listings_id","bookmark_user_id")
+	"id" SERIAL PRIMARY KEY,
+	"bookmark_user_id" integer NOT NULL REFERENCES "user"(id),
+	"bookmark_listings_id" integer NOT NULL REFERENCES "listings"(id) ON DELETE CASCADE
 	);
-
-
 
 CREATE TABLE "listings" (
 	"id" SERIAL PRIMARY KEY,
@@ -40,6 +37,10 @@ CREATE TABLE "listings" (
 	"image" VARCHAR (1000)
 	);
 	
+ALTER TABLE "bookmarks" (
+  
+)
+
 
 TRUNCATE TABLE 	"user";
 
