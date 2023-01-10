@@ -10,9 +10,33 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import EditIcon from '@mui/icons-material/Edit';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import './YourListingsCard.css'
+import { CenterFocusStrong } from '@mui/icons-material';
+
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 200,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    margin: 2,
+  };
+
 
 function YourListingsCard({listing}) {
+
+    const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
 
     const history = useHistory();
 
@@ -51,10 +75,23 @@ function YourListingsCard({listing}) {
         <CardActions className='icons'>
             {/* <Button onClick={handleDelete} size="small">Delete</Button> */}
             <Tooltip title="Delete">
-                <IconButton onClick={handleDelete}>
+                <IconButton onClick={handleOpen}>
                     <DeleteIcon />
                 </IconButton>
             </Tooltip>
+
+            <Modal
+                open={open}
+                onClose={handleClose}
+            >
+            <Box sx={style}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Confirm Delete
+                </Typography>
+            <Button id='delete-confirm' variant="contained" onClick={handleDelete}>Delete</Button>
+            </Box>
+          </Modal>
+
             <Tooltip title="Edit">
                 <IconButton onClick={() => handleEdit(listing)}>
                     <EditIcon className='edit-icon' />
