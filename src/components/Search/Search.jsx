@@ -7,7 +7,7 @@ function Search() {
 
     const dispatch = useDispatch();  
 
-    const listings = useSelector((store) => store.search);
+    const listings = useSelector((store) => store.listings);
   
     console.log('searchpage', listings);
 
