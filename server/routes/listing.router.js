@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
   const queryText = `INSERT INTO "listings" (user_id, name, item, description, item_price, address, phone_number, email, latitude, longitude, image, zip)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10, $11, $12)`
     pool
-      .query(queryText, [req.user.id, req.body.name, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.latitude, req.body.longitude, req.body.image, req.user.zip])
+      .query(queryText, [req.user.id, req.body.name, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.latitude, req.body.longitude, req.body.image, req.body.zip])
       .then(() => res.sendStatus(201))
       .catch((err) => {
         console.log('Add listing failed: ', err);
@@ -97,17 +97,19 @@ router.put('/', (req, res) => {
                 name = $2,
                 description = $3,
                 address= $4,
-                phone_number = $5,
-                email = $6,
-                image = $7,
-                latitude = $8,
-                longitude = $9
-                WHERE id = $10`
+                zip= $5,
+                phone_number = $6,
+                email = $7,
+                image = $8,
+                latitude = $9,
+                longitude = $10
+                WHERE id = $11`
    pool.query(query, [
     req.body.heading,
     req.body.name,
     req.body.description,
     req.body.address,
+    req.body.zip,
     req.body.phone_number,
     req.body.email,
     req.body.image,
