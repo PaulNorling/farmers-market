@@ -16,14 +16,13 @@ function Search() {
 
     function handleClick() {
         console.log(zip)
-        dispatch({ type: 'SEARCH_FETCH',
-                   payload: zip})
+        dispatch({ type: 'SEARCH_FETCH', payload: zip})
     }
 
     return (
         <div>
-          <div>Search by Zip</div>
-          <input placeholder='enter zip' maxLength={5} onChange={(event) => setZip(event.target.value)}/>
+          <div>Search</div>
+          <input placeholder='search' onChange={(event) => setZip(event.target.value)}/>
           <button onClick={handleClick}>Search</button>
           <Map />
           <div className='cardGrid'>
