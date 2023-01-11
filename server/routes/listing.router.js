@@ -2,10 +2,14 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   
   // GET route code here
   const query = `SELECT * 
@@ -23,13 +27,13 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/zip', (req, res) => {
+router.get('/zip', rejectUnauthenticated, (req, res) => {
   
   // GET route code here
   const query = `SELECT * 
-  FROM listings
-  WHERE "listings"."zip"=$1
-  ORDER BY "listings"."id";`;
+                FROM listings
+                WHERE "listings"."zip"=$1
+                ORDER BY "listings"."id";`;
   
   pool.query(query, [req.user.zip])
     .then( result => {
@@ -45,13 +49,37 @@ router.get('/zip', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('POST!', req.user)
 
-  const queryText = `INSERT INTO "listings" (user_id, name, item, description, item_price, address, phone_number, email, latitude, longitude, image, zip)
+  const queryText = `INSERT INTO "listings" 
+                    (user_id, 
+                    name, 
+                    item, 
+                    description,
+                    item_price, 
+                    address, 
+                    phone_number, 
+                    email, 
+                    latitude, 
+                    longitude, 
+                    image, 
+                    zip)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10, $11, $12)`
     pool
-      .query(queryText, [req.user.id, req.body.name, req.body.heading, req.body.description, req.body.price, req.body.address, req.body.phone_number, req.body.email, req.body.latitude, req.body.longitude, req.body.image, req.body.zip])
+      .query(queryText, [
+        req.user.id,
+        req.body.name,
+        req.body.heading,
+        req.body.description, 
+        req.body.price, 
+        req.body.address,
+        req.body.phone_number, 
+        req.body.email, 
+        req.body.latitude, 
+        req.body.longitude, 
+        req.body.image, 
+        req.body.zip])
       .then(() => res.sendStatus(201))
       .catch((err) => {
         console.log('Add listing failed: ', err);
@@ -60,7 +88,7 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
-router.get('/user', (req, res) =>{
+router.get('/user', rejectUnauthenticated, (req, res) =>{
   //console.log('router get by user', req.user.id)
   const query = `SELECT * 
   FROM listings
@@ -77,7 +105,7 @@ router.get('/user', (req, res) =>{
     })
 })
 
-router.get('/detail/:id', (req, res) => {
+router.get('/detail/:id', rejectUnauthenticated, (req, res) => {
   console.log('router GET detail', req.params.id)
   const query = `SELECT * 
   FROM listings
@@ -94,7 +122,7 @@ router.get('/detail/:id', (req, res) => {
     })
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   console.log('router.delete', req.params.id)
   const query = `DELETE FROM "listings" WHERE "id" = $1;`;
   pool.query(query, [req.params.id])
@@ -108,7 +136,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
   console.log('router PUT', req.body)
   const query =`UPDATE listings
                 SET item = $1,
@@ -145,7 +173,7 @@ router.put('/', (req, res) => {
     })             
 })
 
-router.get('/search/:id', (req, res) => {
+router.get('/search/:id', rejectUnauthenticated, (req, res) => {
   console.log('router.SEARCH', req.params.id);
   const id = '%'+req.params.id+'%';
   const query = `SELECT * 
