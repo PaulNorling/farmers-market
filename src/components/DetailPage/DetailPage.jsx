@@ -31,7 +31,6 @@ function DetailPage() {
     }, []);
        
     function favorite() {
-        console.log('clicked', params.id, user.id)
         dispatch({ type: 'ADD_FAVORITE', payload: {listings_id: params.id}})
     };
 

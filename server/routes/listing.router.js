@@ -13,8 +13,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   
   // GET route code here
   const query = `SELECT * 
-  FROM listings
-  ORDER BY "listings"."id";`;
+                FROM listings
+                ORDER BY "listings"."id";`;
   
   pool.query(query)
     .then( result => {
@@ -177,8 +177,8 @@ router.get('/search/:id', rejectUnauthenticated, (req, res) => {
   console.log('router.SEARCH', req.params.id);
   const id = '%'+req.params.id+'%';
   const query = `SELECT * 
-  FROM "listings"
-  WHERE LOWER("listings"."item") Like LOWER ($1) OR LOWER("listings"."description") Like LOWER ($1) ;` 
+                FROM "listings"
+                WHERE LOWER("listings"."item") Like LOWER ($1) OR LOWER("listings"."description") Like LOWER ($1) ;` 
 
   pool.query(query, [id])
     .then( result => {

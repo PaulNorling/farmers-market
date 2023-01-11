@@ -11,7 +11,7 @@ function Carousel() {
        ];
 
     return (
-        <Slider 
+      <Slider 
           infinite='true'
           autoplay='4000'
           previousButton=''

@@ -27,7 +27,7 @@ CREATE TABLE "listings" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT,
 	"name" VARCHAR (30),
-	"item" VARCHAR (30),
+	"item" VARCHAR (100),
 	"item_price" INT,
 	"description" VARCHAR (1000),
 	"address" VARCHAR (200),
