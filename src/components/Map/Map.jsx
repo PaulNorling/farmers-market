@@ -1,7 +1,7 @@
 import { GoogleMap, useLoadScript, Marker, MarkerF, LoadScript } from "@react-google-maps/api";
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './Map.css'
 
 
@@ -39,7 +39,6 @@ function Map(){
         mapContainerClassName="map-container"
       >
       {listings.map(location => {
-        // const coordinates = {lat: +location.latitude, lng: +location.longitude};
         return (
           <div key ={location.id}>
             <MarkerF onLoad={onLoad} position={{lat: +location.latitude, lng: +location.longitude}} onClick={() => {history.push(`/detail/${location.id}`)}}/>

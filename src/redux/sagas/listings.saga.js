@@ -1,11 +1,12 @@
 import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import { func } from 'prop-types';
 
 function* fetchListings() {
     console.log('fetchListings!')
     try {
         const listings = yield axios.get('/api/listing');
-        //console.log('listings.saga GET', listings.data)
+        console.log('listings.saga GET', listings.data)
         yield put ({ type: 'SET_LISTINGS', payload: listings.data})
     } catch {
         console.log('get all error listing.saga');
@@ -24,7 +25,6 @@ function* addListing(action) {
 function* fetchByUser() {
     try{
         const userListings = yield axios.get('/api/listing/user');
-        //console.log('fetchByUser saga', userListings.data)
         yield put ({ type: 'SET_USER_LISTINGS', payload: userListings.data})
     }catch {
         console.log('fetchByUser error');
@@ -34,7 +34,6 @@ function* fetchByUser() {
 function* fetchDetail(action) {
     try{
         const detail = yield axios.get(`/api/listing/detail/${action.payload}`);
-        //console.log('fetchDetail', detail.data);
         yield put ({ type: 'SET_DETAIL', payload: detail.data})
     }catch {
         console.log('fetchDetail error');
@@ -42,7 +41,6 @@ function* fetchDetail(action) {
 }
 
 function* deleteListing(action){
-    //console.log(action.payload)
     try{
         yield axios.delete(`/api/listing/${action.payload}`);
         yield fetchByUser();
@@ -70,6 +68,17 @@ function* searchListing(action) {
     }
 }
 
+function* fetchListingsByZip() {
+    console.log('fetchListingsByZip!')
+    try {
+        const listings = yield axios.get('/api/listing/zip');
+        console.log('listings.saga GET', listings.data)
+        yield put ({ type: 'SET_LISTINGS_BY_ZIP', payload: listings.data})
+    } catch {
+        console.log('get all error listing.saga');
+    }
+}
+
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
     yield takeLatest('ADD_LISTING', addListing);
@@ -78,7 +87,7 @@ function* listingsSaga() {
     yield takeLatest('DELETE_LISTING', deleteListing);
     yield takeLatest('EDIT_LISTING', editListing);
     yield takeLatest('SEARCH_FETCH', searchListing);
-    
+    yield takeLatest('FETCH_LISTINGS_BY_ZIP', fetchListingsByZip);
 
 }
 

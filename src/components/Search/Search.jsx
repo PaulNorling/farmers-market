@@ -7,7 +7,7 @@ function Search() {
 
     const dispatch = useDispatch();  
 
-    const listings = useSelector((store) => store.search);
+    const listings = useSelector((store) => store.listings);
   
     console.log('searchpage', listings);
 
@@ -16,14 +16,13 @@ function Search() {
 
     function handleClick() {
         console.log(zip)
-        dispatch({ type: 'SEARCH_FETCH',
-                   payload: zip})
+        dispatch({ type: 'SEARCH_FETCH', payload: zip})
     }
 
     return (
         <div>
-          <div>Search by Zip</div>
-          <input placeholder='enter zip' maxLength={5} onChange={(event) => setZip(event.target.value)}/>
+          <div>Search</div>
+          <input placeholder='search' onChange={(event) => setZip(event.target.value)}/>
           <button onClick={handleClick}>Search</button>
           <Map />
           <div className='cardGrid'>
@@ -32,7 +31,7 @@ function Search() {
             <UserPageCard key={listing.id} listing={listing}/>
           )
         })}
-      </div>
+          </div>
         </div>
     )
 }

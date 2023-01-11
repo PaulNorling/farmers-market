@@ -14,8 +14,8 @@ function NewListing() {
 
   const [heading, setHeading] = useState('');
   const [name, setName] = useState('');
-  //const [price, setPrice] = useState('');
   const [address, setAddress] = useState('');
+  const [zip, setZip] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [image, setImage] = useState('');
@@ -33,6 +33,7 @@ function NewListing() {
             heading: heading,
             name: name,
             address: address,
+            zip: zip,
             phone_number: phoneNumber,
             email: email,
             image: image,
@@ -78,18 +79,6 @@ return (
           />
         </label>
       </div>
-      {/* <div>
-        <label htmlFor="price">
-          Price:
-          <input
-            type="text"
-            name="price"
-            value={price}
-            required
-            onChange={(event) => setPrice(event.target.value)}
-          />
-        </label>
-      </div> */}
       <div>
         <label htmlFor="address">
           Address:
@@ -100,6 +89,19 @@ return (
             value={address}
             // required
             onChange={(event) => setAddress(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="zip">
+          Zip:
+          <input
+          className='listingInput'
+            type="text"
+            name="zip"
+            value={zip}
+            required
+            onChange={(event) => setZip(event.target.value)}
           />
         </label>
       </div>
@@ -146,7 +148,7 @@ return (
         <label htmlFor="lat">
           Latitude:
           <input
-            className='latitudeInput'
+            className='listingInput'
             type="number"
             name="latitude"
             value={latitude}
@@ -159,7 +161,7 @@ return (
         <label htmlFor="lng">
           Longitude:
           <input
-            className='longitudeInput'
+            className='listingInput'
             type="number"
             name="longitude"
             value={longitude}

@@ -30,28 +30,20 @@ function DetailPage() {
         window.scrollTo(0,0)
     }, []);
        
-
-    // await? dispatch
     function favorite() {
         console.log('clicked', params.id, user.id)
-        //dispatch({ type: 'ADD_FAVORITE', payload: params.id})
         dispatch({ type: 'ADD_FAVORITE', payload: {listings_id: params.id}})
     };
 
     function notFavorite(){
-        //console.log('notFavorite', params.id)
         dispatch({ type: 'DELETE_FAVORITE', payload: params.id})
     };
 
-
-    // favorites[0]?.id
     return(
         <div className="detail-container">
             <div>
               {favorites[0] ? <FavoriteIcon onClick={notFavorite} className='fav-icon'/> : <FavoriteBorderIcon onClick={favorite} className='not-fav-icon'/>}
-              
             </div>
-        {/* loop through array of 1 any better ideas?  */}
          {detail.map(info => {
           return(
               <div key={info.id} >

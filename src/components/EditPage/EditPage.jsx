@@ -13,8 +13,6 @@ function EditPage() {
   const history = useHistory();
 
   const detail = useSelector(store => store.edit)
-
-  //const detail = useSelector(store => store.listings)
     
   console.log('editpage', detail[0])
 
@@ -28,6 +26,7 @@ function EditPage() {
   const [description, setDescription] = useState(detail.description);
   const [name, setName] = useState(detail.name);
   const [address, setAddress] = useState(detail.address);
+  const [zip, setZip] = useState(detail.zip);
   const [phoneNumber, setPhoneNumber] = useState(detail.phone_number);
   const [email, setEmail] = useState(detail.email);
   const [image, setImage] = useState(detail.image);
@@ -45,6 +44,7 @@ function EditPage() {
             description: description,
             name: name,
             address: address,
+            zip: zip,
             phone_number: phoneNumber,
             email: email,
             latitude: latitude,
@@ -84,18 +84,6 @@ return (
           />
         </label>
       </div>
-      {/* <div>
-        <label htmlFor="price">
-          Price:
-          <input
-            type="text"
-            name="price"
-            value={price}
-            // required
-            onChange={(event) => setPrice(event.target.value)}
-          />
-        </label>
-      </div> */}
       <div>
         <label htmlFor="address">
           Address:
@@ -106,6 +94,19 @@ return (
             value={address}
             // required
             onChange={(event) => setAddress(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="zip">
+          Zip:
+          <input
+          className='listingInput'
+            type="text"
+            name="zip"
+            value={zip}
+            required
+            onChange={(event) => setZip(event.target.value)}
           />
         </label>
       </div>
@@ -152,7 +153,7 @@ return (
         <label htmlFor="lat">
           Latitude:
           <input
-            className='latitudeInput'
+            className='listingInput'
             type="number"
             name="latitude"
             value={latitude}
@@ -165,7 +166,7 @@ return (
         <label htmlFor="lng">
           Longitude:
           <input
-            className='longitudeInput'
+            className='listingInput'
             type="number"
             name="longitude"
             value={longitude}

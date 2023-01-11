@@ -1,17 +1,14 @@
 import React, { useEffect } from 'react';
-// import LogOutButton from '../LogOutButton/LogOutButton';
 import {useDispatch, useSelector} from 'react-redux';
 import UserPageCard from './UserPageCard';
-import Search from '../Search/Search';
+
 import Carousel from '../Carousel/Carousel';
 import Map from '../Map/Map';
 import './UserPage.css'
 
 function UserPage() {
+  
   const dispatch = useDispatch();
-
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
-  const user = useSelector((store) => store.user);
 
   const listings = useSelector((store) => store.listings);
   
@@ -29,7 +26,7 @@ function UserPage() {
       </div>
       <Map />
       <div className='heading-container'>
-        <h2>Listings near you</h2>
+        <h2>Listings</h2>
       </div>
       <div className='cardGrid'>
         {listings.map(listing => {
