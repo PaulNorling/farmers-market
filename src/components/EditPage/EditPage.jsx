@@ -13,8 +13,6 @@ function EditPage() {
   const history = useHistory();
 
   const detail = useSelector(store => store.edit)
-
-  //const detail = useSelector(store => store.listings)
     
   console.log('editpage', detail[0])
 

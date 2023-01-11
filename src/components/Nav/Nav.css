@@ -1,15 +1,10 @@
 .nav {
-  /* flex box layout */
   display: flex;
-  /* justify-content: space-between; */
-  /* justify-content: right; */
   align-items: center;
-
   margin: 0 0 30px;
   background-color: #001722;
   overflow: hidden;
   border-bottom: 4px solid #f26924;
-  /* border-bottom: 4px solid #1976D2; */
 }
 
 .nav a {
@@ -32,16 +27,11 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
-
-  /* these last two make the logout button in
-  the nav bar look like another link */
   border: none;
   cursor: pointer;
   outline: 0;
 }
 
 .navLink:hover {
-  /* background-color: rgb(39, 39, 39);
-  color: #f26924; */
   text-decoration: underline;
 }

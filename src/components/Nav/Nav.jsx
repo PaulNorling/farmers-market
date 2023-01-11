@@ -43,12 +43,6 @@ function Nav() {
             <Link className="navLink" to="/favorites">
               Your Favorites
             </Link>
-
-            {/* <Link className="navLink" to="/info">
-              Info Page
-            </Link> */}
-
-            {/* <LogOutButton className="navLink" /> */}
           </>
         )}
 

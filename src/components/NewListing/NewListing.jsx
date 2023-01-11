@@ -14,7 +14,6 @@ function NewListing() {
 
   const [heading, setHeading] = useState('');
   const [name, setName] = useState('');
-  //const [price, setPrice] = useState('');
   const [address, setAddress] = useState('');
   const [zip, setZip] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');

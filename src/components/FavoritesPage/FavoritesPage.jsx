@@ -16,19 +16,18 @@ function FavoritesPage() {
     }, []);
 
     return (
-        
-        <main className='favorite-main'>
-       <div className='heading-container'>
+      <main className='favorite-main'>
+        <div className='heading-container'>
           <h2>Favorites!</h2>
         </div>
           <div className='cardGrid'>
           {favorites.map(favorite => {
             return (
-                <FavoritesPageCard key={favorite.id} listing={favorite}/>
+              <FavoritesPageCard key={favorite.id} listing={favorite}/>
             )
           })}
         </div>
-        </main>
+      </main>
       )
     
 }

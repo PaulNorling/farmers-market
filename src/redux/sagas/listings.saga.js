@@ -6,7 +6,7 @@ function* fetchListings() {
     console.log('fetchListings!')
     try {
         const listings = yield axios.get('/api/listing');
-        //console.log('listings.saga GET', listings.data)
+        console.log('listings.saga GET', listings.data)
         yield put ({ type: 'SET_LISTINGS', payload: listings.data})
     } catch {
         console.log('get all error listing.saga');
@@ -25,7 +25,6 @@ function* addListing(action) {
 function* fetchByUser() {
     try{
         const userListings = yield axios.get('/api/listing/user');
-        //console.log('fetchByUser saga', userListings.data)
         yield put ({ type: 'SET_USER_LISTINGS', payload: userListings.data})
     }catch {
         console.log('fetchByUser error');
@@ -35,7 +34,6 @@ function* fetchByUser() {
 function* fetchDetail(action) {
     try{
         const detail = yield axios.get(`/api/listing/detail/${action.payload}`);
-        //console.log('fetchDetail', detail.data);
         yield put ({ type: 'SET_DETAIL', payload: detail.data})
     }catch {
         console.log('fetchDetail error');
@@ -43,7 +41,6 @@ function* fetchDetail(action) {
 }
 
 function* deleteListing(action){
-    //console.log(action.payload)
     try{
         yield axios.delete(`/api/listing/${action.payload}`);
         yield fetchByUser();

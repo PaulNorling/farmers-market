@@ -31,7 +31,7 @@ function Search() {
             <UserPageCard key={listing.id} listing={listing}/>
           )
         })}
-      </div>
+          </div>
         </div>
     )
 }

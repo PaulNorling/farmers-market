@@ -20,18 +20,14 @@ function FavoritesPageCard({listing}) {
     const dispatch = useDispatch();
 
     function handleDelete() {
-
-          dispatch({ type: 'DELETE_FAVORITE', 
-                    payload: listing.bookmark_listings_id
-                  })
-          //dispatch({ type: 'FETCH_FAVORITES_BY_USER' });
-    
+        dispatch({ type: 'DELETE_FAVORITE', 
+            payload: listing.bookmark_listings_id
+        })
     }
 
     function handleClick() {
         console.log('favoritesPageCard', listing.bookmark_listings_id)
-        history.push(`/detail/${listing.bookmark_listings_id
-        }`)
+        history.push(`/detail/${listing.bookmark_listings_id}`)
     }
 
     return (
