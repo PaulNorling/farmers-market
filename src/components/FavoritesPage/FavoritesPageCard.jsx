@@ -20,7 +20,7 @@ function FavoritesPageCard({listing}) {
     const dispatch = useDispatch();
 
     function handleDelete() {
-        dispatch({ type: 'DELETE_FAVORITE', 
+        dispatch({ type: 'DELETE_FAVORITE_FROM_LIST', 
             payload: listing.bookmark_listings_id
         })
     }
