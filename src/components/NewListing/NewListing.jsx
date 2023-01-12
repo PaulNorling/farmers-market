@@ -44,10 +44,26 @@ function NewListing() {
     })
 };
 
+function autoFill() {
+  console.log('clicked')
+  setHeading('Somerset Farmers Market')
+  setName
+  setAddress('520 Main St, Somerset, WI ')
+  setZip('54025')
+  setPhoneNumber('6128029320')
+  setEmail('paulnorling87@gmail.com')
+  setImage('https://minnesotagrown.com/wp-content/uploads/2018/09/2021.3.3-Submitted-Minneapolis-NE-produce-stand-customer-480x480.jpg')
+  setDescription(`Emphasis on sustainability & locally grown produce, specialty foods, baked goods, prepared foods, meat, eggs,
+   local arts/craft, cooking demos, live music & kids activities. Handicapped accessible & street parking avail. May 14-Oct 15:
+    Sat 9a-1p. FMNP, EBT, Credit/Debit cards accepted. See website for Winter Market information.`)
+  setLatitude('45.122629569663864')
+  setLongitude('-92.6833753576704')
+}
+
 return (
   <div className='new-listing'>
     <form className="addListingForm" onSubmit={addListing}>
-      <h1>New Listing</h1>
+      <h1 onClick={autoFill}>New Listing</h1>
       {/* {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -96,7 +112,7 @@ return (
         <label htmlFor="zip">
           Zip:
           <input
-          className='listingInput'
+            className='listingInput'
             type="text"
             name="zip"
             value={zip}

@@ -24,17 +24,11 @@ function Map(){
         console.log(marker)
     }
 
-    function mpls(){
-        console.log('mpls');
-        history.push('/about')
-    }
-
-    
     return (
       <LoadScript
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
       <GoogleMap 
-        zoom={10} 
+        zoom={10.2} 
         center={{lat: 44.9778, lng: -93.2650}}
         mapContainerClassName="map-container"
       >
