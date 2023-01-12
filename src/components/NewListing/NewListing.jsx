@@ -25,7 +25,6 @@ function NewListing() {
 
   const addListing = (event) => {
     event.preventDefault();
-    console.log('clicked!!!')
 
     dispatch({
         type: 'ADD_LISTING',
@@ -40,7 +39,9 @@ function NewListing() {
             latitude: latitude,
             longitude: longitude,
             description: description,
-        }
+        },
+       //callback : () => history.push('/'),
+       history: history 
     })
 };
 
@@ -53,9 +54,7 @@ function autoFill() {
   setPhoneNumber('6128029320')
   setEmail('paulnorling87@gmail.com')
   setImage('https://minnesotagrown.com/wp-content/uploads/2018/09/2021.3.3-Submitted-Minneapolis-NE-produce-stand-customer-480x480.jpg')
-  setDescription(`Emphasis on sustainability & locally grown produce, specialty foods, baked goods, prepared foods, meat, eggs,
-   local arts/craft, cooking demos, live music & kids activities. Handicapped accessible & street parking avail. May 14-Oct 15:
-    Sat 9a-1p. FMNP, EBT, Credit/Debit cards accepted. See website for Winter Market information.`)
+  setDescription(`The Somerset Farmers Market & Craft is Open every Thursday Night from 3:00pm-7:00pm from May 24th - October 25th. The Market is held in the grassy area next to Apple River Liquor on Main street in Somerset Wisconsin. The Market offers a very diverse verity of products that are locally grown and produced using natural practices. The products offered include fresh local produce, handmade crafts, baked goods and breakfast foods as well as trees and potted plants.`)
   setLatitude('45.122629569663864')
   setLongitude('-92.6833753576704')
 }

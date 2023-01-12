@@ -2,6 +2,9 @@ import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import { func } from 'prop-types';
 
+
+
+
 function* fetchListings() {
     console.log('fetchListings!')
     try {
@@ -17,8 +20,12 @@ function* addListing(action) {
     console.log('addListing', action.payload)
     try {
         yield axios.post('/api/listing', action.payload)
+        alert('Add New Listing Successful');
+        action.history.push('/yourListing')
+
     }catch(error) {
         console.log('post error listing.saga', error);
+        alert('Listing Not Added')
     }
 }
 
@@ -53,8 +60,11 @@ function* editListing(action) {
     console.log('editListingsaga', action.payload)
     try{
         yield axios.put(`/api/listing/`, action.payload)
+        alert('Listing Edit Successful');
+        action.history.push('/yourListing')
     }catch {
         console.log('PUT error');
+        alert('Listing Not Edited')
     }
 }
 

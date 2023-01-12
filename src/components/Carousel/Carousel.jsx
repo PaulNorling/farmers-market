@@ -13,7 +13,7 @@ function Carousel() {
     return (
       <Slider 
           infinite='true'
-          autoplay='4000'
+          autoplay='5000'
           previousButton=''
           nextButton=''
           touchDisabled='true'

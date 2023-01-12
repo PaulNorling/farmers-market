@@ -50,7 +50,8 @@ function EditPage() {
             latitude: latitude,
             longitude: longitude,
             image: image,
-        }
+        },
+        history: history 
     })
 };
 
