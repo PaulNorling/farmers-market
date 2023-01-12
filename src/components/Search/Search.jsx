@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UserPageCard from '../UserPage/UserPageCard';
 import Map from '../Map/Map';
+import './Search.css'
 
 function Search() {
 
@@ -21,9 +22,11 @@ function Search() {
 
     return (
         <div>
-          <div>Search</div>
-          <input placeholder='search' onChange={(event) => setZip(event.target.value)}/>
-          <button onClick={handleClick}>Search</button>
+          <div className='search-input'>
+             <div>Search</div>
+            <input placeholder='search' onChange={(event) => setZip(event.target.value)}/>
+            <button onClick={handleClick}>Search</button>
+          </div>
           <Map />
           <div className='cardGrid'>
         {listings.map(listing => {
