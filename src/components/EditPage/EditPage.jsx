@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 import './EditPage.css'
 
 
@@ -59,7 +61,7 @@ return (
   <div>     
     <form className="addListingForm" onSubmit={editListing}>
       <h1>Edit Listing</h1>
-      <div>
+      {/* <div>
         <label htmlFor="heading">
           Listing Title:
           <input
@@ -71,8 +73,15 @@ return (
             onChange={(event) => setHeading(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Listing Title:" 
+          variant="outlined"
+          value={heading}
+          onChange={(event) => setHeading(event.target.value)} 
+      />
+      {/* <div>
         <label htmlFor="name">
           Name:
           <input
@@ -84,8 +93,15 @@ return (
             onChange={(event) => setName(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Name:" 
+          variant="outlined"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="address">
           Address:
           <input
@@ -97,8 +113,15 @@ return (
             onChange={(event) => setAddress(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Address:" 
+          variant="outlined"
+          value={address}
+          onChange={(event) => setAddress(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="zip">
           Zip:
           <input
@@ -110,8 +133,15 @@ return (
             onChange={(event) => setZip(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Zip:" 
+          variant="outlined"
+          value={zip}
+          onChange={(event) => setZip(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="phoneNumber">
           Phone:
           <input
@@ -123,8 +153,15 @@ return (
             onChange={(event) => setPhoneNumber(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="PhoneNumber:" 
+          variant="outlined"
+          value={phoneNumber}
+          onChange={(event) => setPhoneNumber(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="email">
           Email:
           <input
@@ -136,8 +173,15 @@ return (
             onChange={(event) => setEmail(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Email:" 
+          variant="outlined"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="image">
           Image File:
           <input
@@ -149,8 +193,15 @@ return (
             onChange={(event) => setImage(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Image File:" 
+          variant="outlined"
+          value={image}
+          onChange={(event) => setImage(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="lat">
           Latitude:
           <input
@@ -162,8 +213,15 @@ return (
             onChange={(event) => setLatitude(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Latitude:" 
+          variant="outlined"
+          value={latitude}
+          onChange={(event) => setLatitude(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="lng">
           Longitude:
           <input
@@ -175,8 +233,15 @@ return (
             onChange={(event) => setLongitude(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Longitude:" 
+          variant="outlined"
+          value={longitude}
+          onChange={(event) => setLongitude(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="description">
           Description:
           <textarea
@@ -188,7 +253,15 @@ return (
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Description:" 
+          variant="outlined"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+          multiline
+      />
       <div>
       <Button variant="contained" type="submit" name="submit" value="Add New Listing" >Submit</Button>
       </div>
