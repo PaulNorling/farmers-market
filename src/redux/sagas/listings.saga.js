@@ -1,5 +1,6 @@
 import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 import { func } from 'prop-types';
 
 
@@ -20,12 +21,22 @@ function* addListing(action) {
     console.log('addListing', action.payload)
     try {
         yield axios.post('/api/listing', action.payload)
-        alert('Add New Listing Successful');
-        action.history.push('/yourListing')
-
-    }catch(error) {
-        console.log('post error listing.saga', error);
-        alert('Listing Not Added')
+        // alert('Add New Listing Successful');
+        Swal.fire({
+            text: 'Success',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                action.history.push('/yourListing');
+            }})
+    }catch {
+        Swal.fire({
+            // title: 'Error!',
+            text: 'Error adding listing',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
     }
 }
 
@@ -60,11 +71,21 @@ function* editListing(action) {
     console.log('editListingsaga', action.payload)
     try{
         yield axios.put(`/api/listing/`, action.payload)
-        alert('Listing Edit Successful');
-        action.history.push('/yourListing')
+        Swal.fire({
+            text: 'Success',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                action.history.push('/yourListing');
+            }})
     }catch {
-        console.log('PUT error');
-        alert('Listing Not Edited')
+        Swal.fire({
+            // title: 'Error!',
+            text: 'Error editing listing',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
     }
 }
 

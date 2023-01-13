@@ -10,6 +10,7 @@ import {useDispatch} from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import Swal from 'sweetalert2';
 
 function FavoritesPageCard({listing}) {
 
@@ -20,9 +21,23 @@ function FavoritesPageCard({listing}) {
     const dispatch = useDispatch();
 
     function handleDelete() {
-        dispatch({ type: 'DELETE_FAVORITE_FROM_LIST', 
-            payload: listing.bookmark_listings_id
-        })
+        Swal.fire({
+            // title: 'Error!',
+            text: 'Are you sure you want to delete?',
+            icon: 'question',
+            confirmButtonText: 'DELETE',
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch({ type: 'DELETE_FAVORITE_FROM_LIST', 
+                payload: listing.bookmark_listings_id
+            })
+            } 
+            // else if (result.isDenied) {
+            //   Swal.fire('Changes are not saved', '', 'info')
+            // }
+          })
+        
     }
 
     function handleClick() {

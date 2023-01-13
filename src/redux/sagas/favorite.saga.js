@@ -1,6 +1,7 @@
 import { put, take, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
+
 //delete icon toggle
 function* addFavorite(action) {
     console.log('addFavoriteSaga', action.payload)
