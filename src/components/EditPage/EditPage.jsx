@@ -61,19 +61,6 @@ return (
   <div>     
     <form className="addListingForm" onSubmit={editListing}>
       <h1>Edit Listing</h1>
-      {/* <div>
-        <label htmlFor="heading">
-          Listing Title:
-          <input
-            className='listingInput'
-            type="text"
-            name="heading"
-            value={heading}
-            // required
-            onChange={(event) => setHeading(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Listing Title:" 
@@ -81,19 +68,6 @@ return (
           value={heading}
           onChange={(event) => setHeading(event.target.value)} 
       />
-      {/* <div>
-        <label htmlFor="name">
-          Name:
-          <input
-            className='listingInput'
-            type="text"
-            name="name"
-            value={name}
-            // required
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Name:" 
@@ -101,19 +75,6 @@ return (
           value={name}
           onChange={(event) => setName(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="address">
-          Address:
-          <input
-            className='listingInput'
-            type="text"
-            name="address"
-            value={address}
-            // required
-            onChange={(event) => setAddress(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Address:" 
@@ -121,19 +82,6 @@ return (
           value={address}
           onChange={(event) => setAddress(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="zip">
-          Zip:
-          <input
-          className='listingInput'
-            type="text"
-            name="zip"
-            value={zip}
-            required
-            onChange={(event) => setZip(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Zip:" 
@@ -141,19 +89,6 @@ return (
           value={zip}
           onChange={(event) => setZip(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="phoneNumber">
-          Phone:
-          <input
-            className='listingInput'
-            type="text"
-            name="phoneNumber"
-            value={phoneNumber}
-            // required
-            onChange={(event) => setPhoneNumber(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="PhoneNumber:" 
@@ -161,19 +96,6 @@ return (
           value={phoneNumber}
           onChange={(event) => setPhoneNumber(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="email">
-          Email:
-          <input
-            className='listingInput'
-            type="text"
-            name="email"
-            value={email}
-            // required
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Email:" 
@@ -181,19 +103,6 @@ return (
           value={email}
           onChange={(event) => setEmail(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="image">
-          Image File:
-          <input
-            className='listingInput'
-            type="text"
-            name="image"
-            value={image}
-            // required
-            onChange={(event) => setImage(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Image File:" 
@@ -201,19 +110,6 @@ return (
           value={image}
           onChange={(event) => setImage(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="lat">
-          Latitude:
-          <input
-            className='listingInput'
-            type="number"
-            name="latitude"
-            value={latitude}
-            // required
-            onChange={(event) => setLatitude(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Latitude:" 
@@ -221,19 +117,6 @@ return (
           value={latitude}
           onChange={(event) => setLatitude(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="lng">
-          Longitude:
-          <input
-            className='listingInput'
-            type="number"
-            name="longitude"
-            value={longitude}
-            // required
-            onChange={(event) => setLongitude(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Longitude:" 
@@ -241,19 +124,6 @@ return (
           value={longitude}
           onChange={(event) => setLongitude(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="description">
-          Description:
-          <textarea
-            className='descriptionInput'
-            type="text"
-            name="description"
-            value={description}
-            // required
-            onChange={(event) => setDescription(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           fullWidth sx={{ m: 1 }}
           label="Description:" 
