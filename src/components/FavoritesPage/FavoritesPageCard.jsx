@@ -22,10 +22,10 @@ function FavoritesPageCard({listing}) {
 
     function handleDelete() {
         Swal.fire({
-            // title: 'Error!',
             text: 'Are you sure you want to delete?',
             icon: 'question',
             confirmButtonText: 'DELETE',
+            confirmButtonColor: '#1976d2',
             showCancelButton: true,
           }).then((result) => {
             if (result.isConfirmed) {
@@ -33,9 +33,6 @@ function FavoritesPageCard({listing}) {
                 payload: listing.bookmark_listings_id
             })
             } 
-            // else if (result.isDenied) {
-            //   Swal.fire('Changes are not saved', '', 'info')
-            // }
           })
         
     }

@@ -19,8 +19,6 @@ function Map(){
 
     const listings = useSelector(store => store.listings)
 
-    console.log("MAP", listings)
-
     const onLoad = marker => {
         console.log(marker)
     }

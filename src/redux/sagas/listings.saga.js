@@ -25,7 +25,8 @@ function* addListing(action) {
         Swal.fire({
             text: 'Success',
             icon: 'success',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#1976d2',
           }).then((result) => {
             if (result.isConfirmed) {
                 action.history.push('/yourListing');
@@ -35,7 +36,8 @@ function* addListing(action) {
             // title: 'Error!',
             text: 'Error adding listing',
             icon: 'error',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#1976d2',
           })
     }
 }
@@ -74,7 +76,8 @@ function* editListing(action) {
         Swal.fire({
             text: 'Success',
             icon: 'success',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#1976d2',
           }).then((result) => {
             if (result.isConfirmed) {
                 action.history.push('/yourListing');
@@ -84,7 +87,8 @@ function* editListing(action) {
             // title: 'Error!',
             text: 'Error editing listing',
             icon: 'error',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#1976d2',
           })
     }
 }
