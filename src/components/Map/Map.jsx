@@ -32,7 +32,6 @@ function Map(){
         return;
       }
       setActiveMarker(marker);
-      console.log('Yess!', marker)
     };
 
     return (
@@ -68,5 +67,3 @@ function Map(){
 
 }
 export default Map;
-
-// onClick={() => {history.push(`/detail/${location.id}`)}}
