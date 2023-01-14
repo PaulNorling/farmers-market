@@ -36,8 +36,8 @@ function Map(){
       <LoadScript
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
       <GoogleMap 
-        zoom={10.2} 
-        center={{lat: 44.9778, lng: -93.2650}}
+        zoom={10.6} 
+        center={{lat: 45.0560, lng: -92.8088}}
         mapContainerClassName="map-container"
         onClick={() => setActiveMarker(null)}
       >
