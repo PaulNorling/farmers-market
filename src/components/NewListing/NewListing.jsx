@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import './NewListing.css'
 
 
@@ -68,136 +69,78 @@ return (
           {errors.registrationMessage}
         </h3>
       )} */}
-      <div>
-        <label htmlFor="heading">
-          Listing Title:
-        </label>
-        <input
-            className='listingInput'
-            type="text"
-            name="heading"
-            value={heading}
-            // required
-            onChange={(event) => setHeading(event.target.value)}
-          />
-      </div>
-      <div>
-        <label htmlFor="name">
-          Name:
-          <input
-            className='listingInput'
-            type="text"
-            name="name"
-            value={name}
-            // required
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="address">
-          Address:
-          <input
-            className='listingInput'
-            type="text"
-            name="address"
-            value={address}
-            // required
-            onChange={(event) => setAddress(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="zip">
-          Zip:
-          <input
-            className='listingInput'
-            type="text"
-            name="zip"
-            value={zip}
-            required
-            onChange={(event) => setZip(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="phoneNumber">
-          Phone:
-          <input
-            className='listingInput'
-            type="text"
-            name="phoneNumber"
-            value={phoneNumber}
-            // required
-            onChange={(event) => setPhoneNumber(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="email">
-          Email:
-          <input
-            className='listingInput'
-            type="text"
-            name="email"
-            value={email}
-            // required
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="image">
-          Image File:
-          <input
-            className='listingInput'
-            type="text"
-            name="image"
-            value={image}
-            // required
-            onChange={(event) => setImage(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="lat">
-          Latitude:
-          <input
-            className='listingInput'
-            type="number"
-            name="latitude"
-            value={latitude}
-            // required
-            onChange={(event) => setLatitude(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="lng">
-          Longitude:
-          <input
-            className='listingInput'
-            type="number"
-            name="longitude"
-            value={longitude}
-            // required
-            onChange={(event) => setLongitude(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="description">
-          Description:
-          <textarea
-            className='descriptionInput'
-            type="text"
-            name="description"
-            value={description}
-            // required
-            onChange={(event) => setDescription(event.target.value)}
-          />
-        </label>
-      </div>
+      
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Listing Title:" 
+          variant="outlined"
+          value={heading}
+          onChange={(event) => setHeading(event.target.value)} 
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Name:" 
+          variant="outlined"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Address:" 
+          variant="outlined"
+          value={address}
+          onChange={(event) => setAddress(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Zip:" 
+          variant="outlined"
+          value={zip}
+          onChange={(event) => setZip(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="PhoneNumber:" 
+          variant="outlined"
+          value={phoneNumber}
+          onChange={(event) => setPhoneNumber(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Email:" 
+          variant="outlined"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Image File:" 
+          variant="outlined"
+          value={image}
+          onChange={(event) => setImage(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Latitude:" 
+          variant="outlined"
+          value={latitude}
+          onChange={(event) => setLatitude(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Longitude:" 
+          variant="outlined"
+          value={longitude}
+          onChange={(event) => setLongitude(event.target.value)}
+      />
+      <TextField 
+          fullWidth sx={{ m: 1 }}
+          label="Description:" 
+          variant="outlined"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+          multiline
+      />
       <div>
         <Button variant="contained" type="submit" name="submit" value="Add New Listing" >Add New Listing</Button>
       </div>

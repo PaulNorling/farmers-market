@@ -22,10 +22,10 @@ function FavoritesPageCard({listing}) {
 
     function handleDelete() {
         Swal.fire({
-            // title: 'Error!',
             text: 'Are you sure you want to delete?',
             icon: 'question',
             confirmButtonText: 'DELETE',
+            confirmButtonColor: '#1976d2',
             showCancelButton: true,
           }).then((result) => {
             if (result.isConfirmed) {
@@ -33,9 +33,6 @@ function FavoritesPageCard({listing}) {
                 payload: listing.bookmark_listings_id
             })
             } 
-            // else if (result.isDenied) {
-            //   Swal.fire('Changes are not saved', '', 'info')
-            // }
           })
         
     }
@@ -47,15 +44,15 @@ function FavoritesPageCard({listing}) {
 
     return (
         <Card className='listing-card' sx={{ maxWidth: 250 }}>
-        <Typography>
-            {listing.item}
-        </Typography>
         <CardMedia
             className='listing-card-img' 
             image={listing.image}
         />
+         <Typography className="card-text-container" >
+            <h4>{listing.item}</h4>
+        </Typography>
         <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            <Typography className="card-text-container" sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                 {listing.description.substring(0, 30)}...
             </Typography>
         </CardContent>
