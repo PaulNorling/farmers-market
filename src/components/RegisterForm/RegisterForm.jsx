@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 
 function RegisterForm() {
@@ -31,7 +32,7 @@ function RegisterForm() {
           {errors.registrationMessage}
         </h3>
       )}
-      <div>
+      {/* <div>
         <label htmlFor="username">
           Username:
           <input
@@ -42,8 +43,16 @@ function RegisterForm() {
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          required
+          sx={{ m: 1 }}
+          label="Username:" 
+          variant="outlined"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)} 
+      />
+      {/* <div>
         <label htmlFor="password">
           Password:
           <input
@@ -54,19 +63,35 @@ function RegisterForm() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-      </div>
-      <div>
+      </div> */}
+      <TextField 
+          type="password"
+          required
+          sx={{ m: 1 }}
+          label="Password:" 
+          variant="outlined"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+      />
+      {/* <div>
         <label htmlFor="password">
           Zip:
           <input
-            // type="password"
             name="zip"
             value={zip}
             required
             onChange={(event) => setZip(event.target.value)}
           />
         </label>
-      </div>
+      </div> */}
+      <TextField 
+          required
+          sx={{ m: 1 }}
+          label="Zip:" 
+          variant="outlined"
+          value={zip}
+          onChange={(event) => setZip(event.target.value)}
+      />
       <div>
         <Button variant="contained" className="btn" type="submit" name="submit" value="Register">
           Register

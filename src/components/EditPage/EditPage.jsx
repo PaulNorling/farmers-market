@@ -62,7 +62,8 @@ return (
     <form className="addListingForm" onSubmit={editListing}>
       <h1>Edit Listing</h1>
       <TextField 
-          fullWidth sx={{ m: 1 }}
+          fullWidth 
+          sx={{ m: 1 }}
           label="Listing Title:" 
           variant="outlined"
           value={heading}
