@@ -30,6 +30,12 @@ function AboutPage() {
         <h3>Next Setps</h3>
         <p>payment options</p>
       </div>
+      <div>
+        <h3>Thanks:</h3>
+        <div>My classmates</div>
+        <div>The Prime Academy team and my Instructors</div>
+        <div>My wife Chariissa for the idea and the support</div>
+      </div>
     </div>
   );
 }
