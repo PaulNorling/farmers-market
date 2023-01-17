@@ -23,8 +23,8 @@ function UserPageCard({listing}) {
             className='listing-card-img'
             image={listing.image}
         />
-         <Typography className="card-text-container" >
-            <h4>{listing.item.substring(0, 30)}</h4>
+         <Typography sx={{ fontWeight: 'bold' }}  className="card-text-container" >
+            {listing.item.substring(0, 30)}
         </Typography>
         <CardContent>
             <Typography className="card-text-container" sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

@@ -48,8 +48,8 @@ function FavoritesPageCard({listing}) {
             className='listing-card-img' 
             image={listing.image}
         />
-         <Typography className="card-text-container" >
-            <h4>{listing.item}</h4>
+         <Typography sx={{ fontWeight: 'bold' }}  className="card-text-container" >
+            {listing.item}
         </Typography>
         <CardContent>
             <Typography className="card-text-container" sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

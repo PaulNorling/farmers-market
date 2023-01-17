@@ -20,9 +20,6 @@ function UserPage() {
 
   return (
     <main>
-      <div className='heading-container'>
-        <h2>Connecting Neighbors!</h2>
-      </div>
       <Carousel />
       <div className='heading-container'>
         <h2>Find Local Listings</h2>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import UserPageCard from '../UserPage/UserPageCard';
 import Map from '../Map/Map';
 import './Search.css'
@@ -23,11 +25,13 @@ function Search() {
     return (
         <div>
           <div className='search-input'>
-             <div>Search</div>
-            <input placeholder='search' onChange={(event) => setZip(event.target.value)}/>
-            <button onClick={handleClick}>Search</button>
+            <TextField placeholder='search' onChange={(event) => setZip(event.target.value)}/>
+            <Button variant="contained" sx={{margin: 1 }} onClick={handleClick}>Search</Button>
           </div>
           <Map />
+          <div className='heading-container'>
+            <h2>Search Results</h2>
+          </div>
           <div className='cardGrid'>
         {listings.map(listing => {
           return (
