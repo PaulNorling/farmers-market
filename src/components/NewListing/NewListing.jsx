@@ -47,17 +47,16 @@ function NewListing() {
 };
 
 function autoFill() {
-  console.log('clicked')
-  setHeading('Somerset Farmers Market')
-  setName
-  setAddress('520 Main St, Somerset, WI ')
+  setHeading('')
+  setName('Paul Norling')
+  setAddress('476 208th ave. Somerset, WI ')
   setZip('54025')
   setPhoneNumber('6128029320')
   setEmail('paulnorling87@gmail.com')
-  setImage('https://minnesotagrown.com/wp-content/uploads/2018/09/2021.3.3-Submitted-Minneapolis-NE-produce-stand-customer-480x480.jpg')
-  setDescription(`The Somerset Farmers Market & Craft is Open every Thursday Night from 3:00pm-7:00pm from May 24th - October 25th. The Market is held in the grassy area next to Apple River Liquor on Main street in Somerset Wisconsin. The Market offers a very diverse verity of products that are locally grown and produced using natural practices. The products offered include fresh local produce, handmade crafts, baked goods and breakfast foods as well as trees and potted plants.`)
-  setLatitude('45.122629569663864')
-  setLongitude('-92.6833753576704')
+  setImage('https://upload.wikimedia.org/wikipedia/commons/2/2b/Rheum_rhabarbarum.2006-04-27.uellue.jpg')
+  setDescription(`We are growing rhubarb again this year. May thru june stop by! `)
+  setLatitude('45.16178888391066')
+  setLongitude('-92.71743245818416')
 }
 
 return (
