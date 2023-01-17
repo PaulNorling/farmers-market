@@ -18,6 +18,7 @@ function AboutPage() {
           <h3>Technologies Used:</h3>
           <div>React</div>
           <div>Node.js</div>
+          <div>Material UI</div>
           <div>sweetalert2</div>
           <div>react-google-maps/api</div>
           <div>react-animated-slider</div>

@@ -22,7 +22,7 @@ function UserPage() {
     <main>
       <Carousel />
       <div className='heading-container'>
-        <h2>Local Listings</h2>
+        <h2>Local Listings!</h2>
       </div>
       <Map />
       <div className='heading-container'>
