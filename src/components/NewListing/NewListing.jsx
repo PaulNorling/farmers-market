@@ -113,7 +113,7 @@ return (
       />
       <TextField 
           fullWidth sx={{ m: 1 }}
-          label="Image File:" 
+          label="Image Link:" 
           variant="outlined"
           value={image}
           onChange={(event) => setImage(event.target.value)}
