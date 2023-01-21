@@ -1,4 +1,4 @@
-# Weekend Movie Sagas
+# Farmers Marketplace
 
 ## Description
 Farmers Marketplace is a app for making locally grown food more accessible.  
