@@ -1,7 +1,7 @@
 # Weekend Movie Sagas
 
 ## Description
-Movies Sagas is an application for organizing movies and move details.  
+Farmers Marketplace is a app for making locally grown food more accessible.  
 
 ## Prerequisites
 * node.js
