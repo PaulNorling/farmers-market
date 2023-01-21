@@ -40,7 +40,7 @@ Farmers Marketplace is a app for making locally grown food more accessible.
 2. Save listings to your favorites.
 3. Create your own listing.
 4. Edit listings from your listings page.
-5. Get in touch with your nieghbors!
+5. Get in touch with your neighbors!
 ## Acknowledgement
 
 I want to thank all my classmates for the support they have given me, and our fearless leader Dane!
