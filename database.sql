@@ -27,13 +27,16 @@ CREATE TABLE "listings" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT,
 	"name" VARCHAR (30),
-	"item" VARCHAR (100),
+	"item" VARCHAR (30),
 	"item_price" INT,
 	"description" VARCHAR (1000),
 	"address" VARCHAR (200),
 	"zip" VARCHAR (5) NOT NULL,
 	"phone_number" VARCHAR (30),
 	"email" VARCHAR (100),
+	"website" VARCHAR (100),
+	"latitude" DECIMAL,
+	"longitude" DECIMAL,
 	"image" VARCHAR (1000)
 	);
 	
