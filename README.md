@@ -1,7 +1,7 @@
 # Farmers Marketplace
 
 ## Description
-Farmers Marketplace is a app for making locally grown food more accessible.  
+Farmers Marketplace is a desktop app for making locally grown food more accessible.  
 
 ## Prerequisites
 * node.js
