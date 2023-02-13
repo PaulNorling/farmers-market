@@ -41,7 +41,6 @@ function NewListing() {
             longitude: longitude,
             description: description,
         },
-       //callback : () => history.push('/'),
        history: history 
     })
 };
@@ -63,11 +62,6 @@ return (
   <div className='new-listing'>
     <form className="addListingForm" onSubmit={addListing}>
       <h1 onClick={autoFill}>New Listing</h1>
-      {/* {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )} */}
       
       <TextField 
           fullWidth sx={{ m: 1 }}

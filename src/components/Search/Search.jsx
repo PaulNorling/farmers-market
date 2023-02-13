@@ -11,21 +11,18 @@ function Search() {
     const dispatch = useDispatch();  
 
     const listings = useSelector((store) => store.listings);
-  
-    console.log('searchpage', listings);
 
-    const [zip, setZip] = useState('');
+    const [search, setSearch] = useState('');
     
 
     function handleClick() {
-        console.log(zip)
-        dispatch({ type: 'SEARCH_FETCH', payload: zip})
+        dispatch({ type: 'SEARCH_FETCH', payload: search})
     }
 
     return (
         <div>
           <div className='search-input'>
-            <TextField placeholder='search' onChange={(event) => setZip(event.target.value)}/>
+            <TextField placeholder='search' onChange={(event) => setSearch(event.target.value)}/>
             <Button variant="contained" sx={{margin: 1 }} onClick={handleClick}>Search</Button>
           </div>
           <Map />

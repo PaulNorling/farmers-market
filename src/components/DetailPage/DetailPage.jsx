@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
-import StarIcon from '@mui/icons-material/StarOutline';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import './DetailPage.css'
@@ -17,12 +16,7 @@ function DetailPage() {
 
     const detail = useSelector(store => store.listings)
 
-    const user = useSelector(store => store.user)
-
     const favorites = useSelector(store => store.favorite)
-
-    console.log('DETAIL', favorites)
-
     
     useEffect(() => {
         dispatch({ type: 'FETCH_FAVORITE', payload: params.id});
@@ -53,13 +47,9 @@ function DetailPage() {
                     </div>
                     <div className='section2-container'>
                         <h2>Contact Information</h2>
-                        {/* <h5>Name</h5> */}
                         <h3>{info.name}</h3>
-                        {/* <h5>Address</h5> */}
                         <h4>{info.address}</h4>
-                        {/* <h5>Email</h5> */}
                         <a href={info.email}>{info.email}</a>
-                        {/* <h5>Phone Number</h5> */}
                         <h4>{info.phone_number}</h4>
                     </div>
                 </div>

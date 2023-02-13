@@ -9,12 +9,10 @@ const {
 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log('router POST favorite', req.body)
     const query = `INSERT INTO "bookmarks" (bookmark_user_id, bookmark_listings_id)
                    VALUES ($1, $2)`
     pool.query(query, [req.user.id, req.body.listings_id])
     .then(() => {
-      console.log('favorite added!');
       res.sendStatus(200);
   })
   .catch((error) => {
@@ -24,7 +22,6 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   })
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
-    console.log('favoriteRouter', req.params.id)
     const query = `SELECT *
                   FROM "listings"
                   JOIN "bookmarks"
@@ -32,7 +29,6 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                   WHERE "bookmarks"."bookmark_user_id"=$1 AND "bookmarks"."bookmark_listings_id" =$2;`
     pool.query(query, [req.user.id, req.params.id])
     .then((result) => {
-      //console.log('get favorites!', result.rows);
       res.send(result.rows);
   })
   .catch((error) => {
@@ -42,7 +38,6 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  console.log('router.delete', req.user.id, req.params.id)
     const query = `DELETE FROM "bookmarks" 
                   WHERE "bookmark_user_id" = $1 AND "bookmark_listings_id" = $2;`
     pool.query(query, [req.user.id, req.params.id])
@@ -57,7 +52,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 })
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-    //console.log('getfavoritesbyuser')
     const query = `SELECT *
                   FROM "listings"
                   RIGHT JOIN "bookmarks"

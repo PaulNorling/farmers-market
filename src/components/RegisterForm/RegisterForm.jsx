@@ -32,18 +32,6 @@ function RegisterForm() {
           {errors.registrationMessage}
         </h3>
       )}
-      {/* <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           required
           sx={{ m: 1 }}
@@ -52,18 +40,6 @@ function RegisterForm() {
           value={username}
           onChange={(event) => setUsername(event.target.value)} 
       />
-      {/* <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           type="password"
           required
@@ -73,17 +49,6 @@ function RegisterForm() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
       />
-      {/* <div>
-        <label htmlFor="password">
-          Zip:
-          <input
-            name="zip"
-            value={zip}
-            required
-            onChange={(event) => setZip(event.target.value)}
-          />
-        </label>
-      </div> */}
       <TextField 
           required
           sx={{ m: 1 }}

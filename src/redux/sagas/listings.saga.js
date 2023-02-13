@@ -7,10 +7,8 @@ import { func } from 'prop-types';
 
 
 function* fetchListings() {
-    console.log('fetchListings!')
     try {
         const listings = yield axios.get('/api/listing');
-        console.log('listings.saga GET', listings.data)
         yield put ({ type: 'SET_LISTINGS', payload: listings.data})
     } catch {
         console.log('get all error listing.saga');
@@ -18,10 +16,8 @@ function* fetchListings() {
 }
 
 function* addListing(action) {
-    console.log('addListing', action.payload)
     try {
         yield axios.post('/api/listing', action.payload)
-        // alert('Add New Listing Successful');
         Swal.fire({
             text: 'Success',
             icon: 'success',
@@ -33,7 +29,6 @@ function* addListing(action) {
             }})
     }catch {
         Swal.fire({
-            // title: 'Error!',
             text: 'Error adding listing',
             icon: 'error',
             confirmButtonText: 'OK',
@@ -70,7 +65,6 @@ function* deleteListing(action){
 }
 
 function* editListing(action) {
-    console.log('editListingsaga', action.payload)
     try{
         yield axios.put(`/api/listing/`, action.payload)
         Swal.fire({
@@ -94,7 +88,6 @@ function* editListing(action) {
 }
 
 function* searchListing(action) {
-    console.log('SEARCH', action.payload)
     try{
         const searchResult = yield axios.get(`/api/listing/search/${action.payload}`);
         yield put ({ type: 'SET_SEARCH', payload: searchResult.data})
@@ -103,16 +96,6 @@ function* searchListing(action) {
     }
 }
 
-function* fetchListingsByZip() {
-    console.log('fetchListingsByZip!')
-    try {
-        const listings = yield axios.get('/api/listing/zip');
-        console.log('listings.saga GET', listings.data)
-        yield put ({ type: 'SET_LISTINGS_BY_ZIP', payload: listings.data})
-    } catch {
-        console.log('get all error listing.saga');
-    }
-}
 
 function* listingsSaga() {
     yield takeLatest('FETCH_LISTINGS', fetchListings);
@@ -122,7 +105,6 @@ function* listingsSaga() {
     yield takeLatest('DELETE_LISTING', deleteListing);
     yield takeLatest('EDIT_LISTING', editListing);
     yield takeLatest('SEARCH_FETCH', searchListing);
-    yield takeLatest('FETCH_LISTINGS_BY_ZIP', fetchListingsByZip);
 
 }
 

@@ -18,7 +18,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   
   pool.query(query)
     .then( result => {
-      //console.log('GET IT!!', result.rows)
       res.send(result.rows);
     })
     .catch(err => {
@@ -37,7 +36,6 @@ router.get('/zip', rejectUnauthenticated, (req, res) => {
   
   pool.query(query, [req.user.zip])
     .then( result => {
-      console.log('GET ZIP!!', result.rows)
       res.send(result.rows);
     })
     .catch(err => {
@@ -50,8 +48,7 @@ router.get('/zip', rejectUnauthenticated, (req, res) => {
  * POST route template
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
-  console.log('POST!', req.user)
-
+  
   const queryText = `INSERT INTO "listings" 
                     (user_id, 
                     name, 
@@ -65,7 +62,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                     longitude, 
                     image, 
                     zip)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10, $11, $12)`
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10, $11, $12)`
     pool
       .query(queryText, [
         req.user.id,
@@ -89,14 +86,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/user', rejectUnauthenticated, (req, res) =>{
-  //console.log('router get by user', req.user.id)
   const query = `SELECT * 
   FROM listings
   WHERE "user_id"=$1`
 
   pool.query(query, [req.user.id])
     .then( result => {
-      //console.log('GET IT BY USER!!', result.rows)
       res.send(result.rows);
     })
     .catch(err => {
@@ -106,14 +101,13 @@ router.get('/user', rejectUnauthenticated, (req, res) =>{
 })
 
 router.get('/detail/:id', rejectUnauthenticated, (req, res) => {
-  console.log('router GET detail', req.params.id)
   const query = `SELECT * 
   FROM listings
   WHERE "id"=$1`
 
   pool.query(query, [req.params.id])
     .then( result => {
-      //console.log('GET IT BY ID!!', result.rows[0])
+      console.log('GET IT BY ID!!', result.rows[0])
       res.send(result.rows);
     })
     .catch(error => {
@@ -123,7 +117,6 @@ router.get('/detail/:id', rejectUnauthenticated, (req, res) => {
 })
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  console.log('router.delete', req.params.id)
   const query = `DELETE FROM "listings" WHERE "id" = $1;`;
   pool.query(query, [req.params.id])
     .then(() => {
@@ -137,7 +130,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 })
 
 router.put('/', rejectUnauthenticated, (req, res) => {
-  console.log('router PUT', req.body)
   const query =`UPDATE listings
                 SET item = $1,
                 name = $2,
@@ -174,7 +166,6 @@ router.put('/', rejectUnauthenticated, (req, res) => {
 })
 
 router.get('/search/:id', rejectUnauthenticated, (req, res) => {
-  console.log('router.SEARCH', req.params.id);
   const id = '%'+req.params.id+'%';
   const query = `SELECT * 
                 FROM "listings"

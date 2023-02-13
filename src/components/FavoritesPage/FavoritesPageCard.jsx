@@ -14,8 +14,6 @@ import Swal from 'sweetalert2';
 
 function FavoritesPageCard({listing}) {
 
-    console.log('FavoritesPageCard' ,listing)
-
     const history = useHistory();
 
     const dispatch = useDispatch();

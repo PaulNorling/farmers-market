@@ -16,8 +16,6 @@ function EditPage() {
 
   const detail = useSelector(store => store.edit)
     
-  console.log('editpage', detail[0])
-
   const dispatch = useDispatch(); 
 
   useEffect(() => {
