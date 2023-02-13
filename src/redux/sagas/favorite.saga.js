@@ -4,7 +4,6 @@ import axios from 'axios';
 
 //delete icon toggle
 function* addFavorite(action) {
-    console.log('addFavoriteSaga', action.payload)
     try{
         yield axios.post(`/api/favorite`, action.payload)
         yield put ({type: 'FETCH_FAVORITE', payload: action.payload.listings_id})
@@ -14,10 +13,8 @@ function* addFavorite(action) {
 }
 
 function* fetchFavorite(action) {
-    console.log('fetchFavorite', action.payload)
     try{
         const favorites = yield axios.get(`/api/favorite/${action.payload}`)
-        console.log('fetchFavorites', favorites.data)
         yield put ({ type: 'SET_FAVORITES', payload: favorites.data})
     }catch {
         console.log('FAV GET error');
@@ -25,10 +22,8 @@ function* fetchFavorite(action) {
 }
 //favorite icon toggle
 function* deleteFavorite(action) {
-    console.log('deleteFav', action.payload)
     try{
         yield axios.delete(`/api/favorite/${action.payload}`);
-        // yield put ({type: 'FETCH_FAVORITES_BY_USER'})
         yield put ({type: 'FETCH_FAVORITE', payload: action.payload})
     }catch {
         console.log('delete error');
@@ -38,7 +33,6 @@ function* deleteFavorite(action) {
 function* fetchFavoritesByUser() {
     try{
         const favorites = yield axios.get(`/api/favorite`)
-        console.log('fetchByUserFavorites', favorites.data)
         yield put ({ type: 'SET_USER_FAVORITES', payload: favorites.data})
     }catch {
         console.log('fetchFavoritesByUser error');
@@ -46,7 +40,6 @@ function* fetchFavoritesByUser() {
 }
 
 function* deleteFavoriteFromList(action) {
-    console.log('deleteFav', action.payload)
     try{
         yield axios.delete(`/api/favorite/${action.payload}`);
         yield put ({type: 'FETCH_FAVORITES_BY_USER'})

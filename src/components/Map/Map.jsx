@@ -1,4 +1,4 @@
-import { GoogleMap, useLoadScript, Marker, MarkerF, LoadScript, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, LoadScript, InfoWindow } from "@react-google-maps/api";
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import React, { useEffect, useState } from 'react';

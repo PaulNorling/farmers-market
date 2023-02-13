@@ -15,20 +15,6 @@ import './YourListingsCard.css';
 
 
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 200,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    margin: 2,
-  };
-
-
 function YourListingsCard({listing}) {
 
     const history = useHistory();
@@ -51,7 +37,6 @@ function YourListingsCard({listing}) {
     }
 
     const handleEdit = (listing) => {
-        console.log('handleEdit', listing)
         history.push(`/edit/${listing.id}`)
         dispatch({ type: 'SET_EDIT_STATE', payload: listing})
     }
