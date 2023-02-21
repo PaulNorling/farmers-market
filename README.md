@@ -9,6 +9,7 @@ Farmers Marketplace is a desktop app for making locally grown food more accessib
 ## Prerequisites
 * node.js
 * PostgresSql
+* Google Maps Javascript Api key
 
 ## Screen shots
 
