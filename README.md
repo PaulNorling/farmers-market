@@ -4,7 +4,7 @@
 https://immense-bastion-66215.herokuapp.com/#/home
 
 ## Description
-Farmers Marketplace is a desktop app for making locally grown food more accessible.  
+This repository contains the source code for a Farmers Market App, a desktop web-based application that connects local farmers with consumers in their area. The app allows farmers to list their products, and communicate directly with customers. Consumers can search for farmers and products in their area.
 
 ## Prerequisites
 * node.js
